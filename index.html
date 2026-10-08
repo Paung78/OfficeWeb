@@ -4251,6 +4251,11 @@
                 Prediction Rate
             </button>
 
+            <!-- Prediction Menus (NEWLY ADDED) -->
+            <button type="button" class="sidebar-btn sidebar-btn-ck" onclick="openPredictionPage()">
+                Prediction Menus
+            </button>
+
             <!-- History Chats (nested) -->
             <div class="sidebar-group">
                 <button type="button"
@@ -5650,6 +5655,26 @@
             }, 300);
         }
 
+        // NEW: Open Prediction Page and show Ck Menu
+        function openPredictionPage() {
+            closeSidebar();
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.style.display = 'none';
+                screen.classList.remove('active', 'entering', 'exiting');
+            });
+            hideAllMenus();
+            hideAllMiniPages();
+            
+            const predictionPage = document.getElementById('predictionPage');
+            predictionPage.style.display = 'flex';
+            predictionPage.classList.add('entering');
+            setTimeout(() => {
+                predictionPage.classList.remove('entering');
+                predictionPage.classList.add('active');
+                showCkMenu();
+            }, 50);
+        }
+
         // Navigate to prediction page and show 777 BigWin menu
         function navigateToBigWinPrediction() {
             closeSidebar();
@@ -5979,6 +6004,37 @@
             const headerBackBtn = document.getElementById('headerBackBtn');
             headerBackBtn.style.display = 'block';
             headerBackBtn.setAttribute('data-back', 'bigWinMenu');
+        }
+
+        // Show Global Trx Menu
+        function showGlobalTrxMenu() {
+            const activeMenu = document.querySelector('.menu.active');
+            if (activeMenu) {
+                activeMenu.classList.remove('active');
+                activeMenu.classList.add('exiting');
+                setTimeout(() => {
+                    activeMenu.classList.remove('exiting');
+                    hideAllMenus();
+                    const globalTrxMenu = document.getElementById('globalTrxMenu');
+                    globalTrxMenu.classList.add('entering');
+                    setTimeout(() => {
+                        globalTrxMenu.classList.remove('entering');
+                        globalTrxMenu.classList.add('active');
+                    }, 50);
+                }, 200);
+            } else {
+                hideAllMenus();
+                const globalTrxMenu = document.getElementById('globalTrxMenu');
+                globalTrxMenu.classList.add('entering');
+                setTimeout(() => {
+                    globalTrxMenu.classList.remove('entering');
+                    globalTrxMenu.classList.add('active');
+                }, 50);
+            }
+            
+            const headerBackBtn = document.getElementById('headerBackBtn');
+            headerBackBtn.style.display = 'block';
+            headerBackBtn.setAttribute('data-back', 'main');
         }
 
         function showGlobalTrxVersionMenu() {
