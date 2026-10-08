@@ -424,7 +424,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: scaleIn 1s ease-out;
+            animation: introScaleIn 1s ease-out;
             padding: var(--space-5);
             border-radius: 0;
             background: transparent;
@@ -478,7 +478,7 @@
             color: transparent;
         }
 
-        @keyframes scaleIn {
+        @keyframes introScaleIn {
             0% { transform: scale(0.8); opacity: 0; }
             100% { transform: scale(1); opacity: 1; }
         }
@@ -3218,8 +3218,7 @@
         }
         /* 777 BigWin v1.2 – full view (embedded external pages) */
         #bigWin30Mini1-2.mini-page.active,
-        #bigWin1MinMini1-2.mini-page.active,
-        #bigWinGlobalMini1-2.mini-page.active {
+        #bigWin1MinMini1-2.mini-page.active {
             height: 100vh;
             height: 100dvh;
             min-height: 0;
@@ -3232,13 +3231,11 @@
             z-index: 100;
         }
         #bigWin30Mini1-2 .mini-page-header,
-        #bigWin1MinMini1-2 .mini-page-header,
-        #bigWinGlobalMini1-2 .mini-page-header {
+        #bigWin1MinMini1-2 .mini-page-header {
             display: none;
         }
         #bigWin30Mini1-2 .mini-page-content,
-        #bigWin1MinMini1-2 .mini-page-content,
-        #bigWinGlobalMini1-2 .mini-page-content {
+        #bigWin1MinMini1-2 .mini-page-content {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -3837,7 +3834,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/ck30mini1-1.html"
+                src="mini/ck30mini1-1.html"
                 title="WinGo 30 Sec - Ck Lottery Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3853,7 +3850,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/ck30mini1-1-free.html"
+                src="mini/ck30mini1-1-free.html"
                 title="WinGo 30 Sec - Ck Lottery Prediction (Free)"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3869,7 +3866,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/ck1mini1-1.html"
+                src="mini/ck1mini1-1.html"
                 title="WinGo 1 Min - Ck Lottery Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3885,7 +3882,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/global_trx1mini1-1.html"
+                src="mini/global_trx1mini1-1.html"
                 title="Global Trx 1 Min - Global Trx Prediction v1.1"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3902,7 +3899,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/ck30mini1-2.html"
+                src="mini/ck30mini1-2.html"
                 title="WinGo 30 Sec - Ck Lottery Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3918,7 +3915,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/ck1mini1-2.html"
+                src="mini/ck1mini1-2.html"
                 title="WinGo 1 Min - Ck Lottery Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3934,7 +3931,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/global_trx1mini1-2.html"
+                src="mini/global_trx1mini1-2.html"
                 title="Global Trx 1 Min - Global Trx Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3950,7 +3947,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/preditionrate.html"
+                src="mini/preditionrate.html"
                 title="Prediction Rate"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3967,7 +3964,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="/ck%20wingo%2030%20sce/ck30results.html"
+                src="ck%20wingo%2030%20sce/ck30results.html"
                 title="CK WinGo 30 Sec - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -3983,7 +3980,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="/ck%20wingo1/ck1result.html"
+                src="ck%20wingo1/ck1result.html"
                 title="CK WinGo 1 Min - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -3999,7 +3996,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="/bigwin%20wingo%2030/bigwin30results.html"
+                src="bigwin%20wingo%2030/bigwin30results.html"
                 title="777 BigWin WinGo 30 Sec - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -4015,7 +4012,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="/bigwin%20wingo1/bigwin1results.html"
+                src="bigwin%20wingo1/bigwin1results.html"
                 title="777 BigWin WinGo 1 Min - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -4031,7 +4028,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="/global%20trx/global_trx1results.html"
+                src="global%20trx/global_trx1results.html"
                 title="Global TRX Trx1Min - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -4048,7 +4045,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/bigwin30min1-1.html"
+                src="mini/bigwin30min1-1.html"
                 title="WinGo 30 Sec - 777 BigWin Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4064,7 +4061,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/bigwin30mini1-1-free.html"
+                src="mini/bigwin30mini1-1-free.html"
                 title="WinGo 30 Sec - 777 BigWin Prediction (Free)"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4080,7 +4077,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/bigwin1mini1-1.html"
+                src="mini/bigwin1mini1-1.html"
                 title="WinGo 1 Min - 777 BigWin Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4097,7 +4094,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/bigwin30mini1-2.html"
+                src="mini/bigwin30mini1-2.html"
                 title="WinGo 30 Sec - 777 BigWin Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4113,7 +4110,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="/mini/bigwin1mini1-2.html"
+                src="mini/bigwin1mini1-2.html"
                 title="WinGo 1 Min - 777 BigWin Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -6170,6 +6167,8 @@
         // Go back to Ck Version Menu from Mini Page
         function goBackToCkVersion() {
             const activePage = document.querySelector('.mini-page.active');
+            const activeId = activePage ? activePage.id : '';
+            const versionMenuId = activeId.includes('1-2') ? 'ckVersionMenu12' : 'ckVersionMenu';
             if (activePage) {
                 activePage.classList.remove('active');
                 activePage.classList.add('exiting');
@@ -6186,7 +6185,7 @@
                     }, 50);
                     
                     hideAllMenus();
-                    const versionMenu = document.getElementById('ckVersionMenu');
+                    const versionMenu = document.getElementById(versionMenuId);
                     versionMenu.classList.add('entering');
                     setTimeout(() => {
                         versionMenu.classList.remove('entering');
@@ -6197,7 +6196,7 @@
                 hideAllMiniPages();
                 document.getElementById('predictionPage').style.display = 'flex';
                 hideAllMenus();
-                document.getElementById('ckVersionMenu').classList.add('active');
+                document.getElementById(versionMenuId).classList.add('active');
             }
             // Re-enable page scroll and clear last mini page
             document.body.style.overflow = '';
@@ -6208,6 +6207,8 @@
         // Go back to BigWin Menu from Mini Page
         function goBackToBigWin() {
             const activePage = document.querySelector('.mini-page.active');
+            const activeId = activePage ? activePage.id : '';
+            const versionMenuId = activeId.includes('1-2') ? 'bigWinVersionMenu12' : 'bigWinVersionMenu';
             if (activePage) {
                 activePage.classList.remove('active');
                 activePage.classList.add('exiting');
@@ -6224,7 +6225,7 @@
                     }, 50);
                     
                     hideAllMenus();
-                    const versionMenu = document.getElementById('bigWinVersionMenu');
+                    const versionMenu = document.getElementById(versionMenuId);
                     versionMenu.classList.add('entering');
                     setTimeout(() => {
                         versionMenu.classList.remove('entering');
@@ -6235,7 +6236,7 @@
                 hideAllMiniPages();
                 document.getElementById('predictionPage').style.display = 'flex';
                 hideAllMenus();
-                document.getElementById('bigWinVersionMenu').classList.add('active');
+                document.getElementById(versionMenuId).classList.add('active');
             }
             // Re-enable page scroll and clear last mini page
             document.body.style.overflow = '';
