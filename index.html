@@ -21,11 +21,13 @@
         }
 
         :root {
-            /* Brand - Modern Indigo & Emerald */
+            /* Brand - Modern Indigo & Emerald & Red */
             --ck-blue: #6366f1;
             --ck-blue-hover: #4f46e5;
             --bigwin-green: #22c55e;
             --bigwin-green-hover: #16a34a;
+            --sixwin-red: #ef4444;
+            --sixwin-red-hover: #dc2626;
             --globaltrx-cyan: #06b6d4;
             --globaltrx-cyan-hover: #0891b2;
 
@@ -78,6 +80,7 @@
             /* Text accent (use on headings / labels) */
             --text-ck: #4338ca;
             --text-bigwin: #15803d;
+            --text-sixwin: #b91c1c;
             --text-accent: #2563eb;
 
             /* Theme Switch Colors */
@@ -635,6 +638,7 @@
         /* Brand Button Variants - Solid classic */
         .btn-ck,
         .btn-bigwin,
+        .btn-sixwin,
         .btn-globaltrx {
             width: min(96%, 640px);
             padding: clamp(24px, 3vw, 30px) clamp(32px, 4vw, 48px);
@@ -666,6 +670,19 @@
         .btn-bigwin:hover {
             background: var(--bigwin-green-hover);
             border-color: var(--bigwin-green-hover);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+        }
+
+        .btn-sixwin {
+            background: var(--sixwin-red);
+            border: 1px solid var(--sixwin-red);
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-sixwin:hover {
+            background: var(--sixwin-red-hover);
+            border-color: var(--sixwin-red-hover);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
         }
 
@@ -759,6 +776,12 @@
         #ckVersionMenu .menu-label,
         #ckVersionMenu12 .menu-label {
             color: var(--text-ck);
+        }
+
+        #sixWinMenu .menu-label,
+        #sixWinVersionMenu .menu-label,
+        #sixWinVersionMenu12 .menu-label {
+            color: var(--text-sixwin);
         }
 
         #globalTrxMenu .menu-label,
@@ -1099,7 +1122,7 @@
                 min-height: 48px;
                 padding: 16px 24px;
             }
-            .btn-ck, .btn-bigwin {
+            .btn-ck, .btn-bigwin, .btn-sixwin {
                 min-height: 52px;
             }
         }
@@ -1579,6 +1602,28 @@
         }
 
         .sidebar-btn.sidebar-btn-bigwin:active {
+            box-shadow:
+                inset 4px 4px 10px rgba(0, 0, 0, 0.15),
+                inset -3px -3px 8px rgba(255, 255, 255, 0.12);
+        }
+
+        /* SixWin – soft raised red pill */
+        .sidebar-btn.sidebar-btn-sixwin {
+            background: linear-gradient(145deg, #f87171 0%, #ef4444 50%, #dc2626 100%);
+            color: #ffffff;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+            box-shadow:
+                6px 6px 14px rgba(220, 38, 38, 0.32),
+                -4px -4px 12px rgba(255, 255, 255, 0.35);
+        }
+
+        .sidebar-btn.sidebar-btn-sixwin:hover {
+            box-shadow:
+                4px 4px 12px rgba(220, 38, 38, 0.28),
+                -3px -3px 10px rgba(255, 255, 255, 0.4);
+        }
+
+        .sidebar-btn.sidebar-btn-sixwin:active {
             box-shadow:
                 inset 4px 4px 10px rgba(0, 0, 0, 0.15),
                 inset -3px -3px 8px rgba(255, 255, 255, 0.12);
@@ -2110,6 +2155,14 @@
                 inset -3px -3px 8px rgba(255, 255, 255, 0.1);
         }
 
+        .sidebar-group-title[aria-expanded="true"].sidebar-btn-sixwin {
+            color: #ffffff;
+            background: linear-gradient(145deg, #ef4444 0%, #dc2626 100%);
+            box-shadow:
+                inset 4px 4px 10px rgba(0, 0, 0, 0.18),
+                inset -3px -3px 8px rgba(255, 255, 255, 0.1);
+        }
+
         .sidebar-group-title[aria-expanded="true"].sidebar-btn-globaltrx {
             color: #ffffff;
             background: linear-gradient(145deg, #f97316 0%, #ea580c 100%);
@@ -2223,6 +2276,17 @@
             box-shadow: var(--neumo-raise);
         }
 
+        .sidebar-sub-btn.sidebar-btn-sixwin {
+            background: var(--neumo-base);
+            color: var(--neumo-text);
+            box-shadow: var(--neumo-raise-sm);
+        }
+
+        .sidebar-sub-btn.sidebar-btn-sixwin:hover {
+            color: var(--sixwin-red-hover);
+            box-shadow: var(--neumo-raise);
+        }
+
         .sidebar-sub-btn.sidebar-btn-globaltrx {
             background: var(--neumo-base);
             color: var(--neumo-text);
@@ -2274,6 +2338,15 @@
         #bigWinDeposit .register-title,
         #bigWinWithdrawal .register-title {
             background: linear-gradient(135deg, var(--text) 0%, var(--text-bigwin) 50%, var(--bigwin-green) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        #sixWinRegister .register-title,
+        #sixWinDeposit .register-title,
+        #sixWinWithdrawal .register-title {
+            background: linear-gradient(135deg, var(--text) 0%, var(--text-sixwin) 50%, var(--sixwin-red) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -2396,6 +2469,21 @@
             transform: translateY(-1px);
             box-shadow:
                 4px 4px 12px rgba(79, 70, 229, 0.32),
+                -3px -3px 10px rgba(255, 255, 255, 0.4);
+        }
+
+        /* SixWin – red (match sidebar) */
+        #signalChannels .register-now-btn.channel-btn-sixwin {
+            background: linear-gradient(145deg, #f87171 0%, #ef4444 50%, #dc2626 100%);
+            box-shadow:
+                6px 6px 14px rgba(220, 38, 38, 0.32),
+                -4px -4px 12px rgba(255, 255, 255, 0.35);
+        }
+
+        #signalChannels .register-now-btn.channel-btn-sixwin:hover {
+            transform: translateY(-1px);
+            box-shadow:
+                4px 4px 12px rgba(220, 38, 38, 0.28),
                 -3px -3px 10px rgba(255, 255, 255, 0.4);
         }
 
@@ -2549,6 +2637,12 @@
             color: #334155;
         }
 
+        #sixWinRegister .register-page-intro,
+        #sixWinDeposit .register-page-intro,
+        #sixWinWithdrawal .register-page-intro {
+            color: #334155;
+        }
+
         .register-page-links {
             display: flex;
             flex-wrap: wrap;
@@ -2577,6 +2671,10 @@
 
         #bigWinRegister .register-page-links a {
             color: var(--bigwin-green);
+        }
+
+        #sixWinRegister .register-page-links a {
+            color: var(--sixwin-red);
         }
 
         .deposit-section-title {
@@ -2692,6 +2790,14 @@
             max-width: 200px;
         }
 
+        #sixWinDeposit .step-photo-container {
+            max-width: 200px;
+        }
+
+        #sixWinWithdrawal .step-photo-container {
+            max-width: 200px;
+        }
+
         .register-now-btn {
             display: block;
             width: 100%;
@@ -2734,6 +2840,18 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
         }
 
+        .sixwin-register-btn {
+            background: var(--sixwin-red) !important;
+            border-color: var(--sixwin-red) !important;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .sixwin-register-btn:hover {
+            background: var(--sixwin-red-hover) !important;
+            border-color: var(--sixwin-red-hover) !important;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25) !important;
+        }
+
         .step-description {
             margin-top: 20px;
         }
@@ -2769,6 +2887,11 @@
         /* BigWin page description border - Green */
         #bigWinRegister .description-text {
             border-left-color: var(--bigwin-green);
+        }
+
+        /* SixWin page description border - Red */
+        #sixWinRegister .description-text {
+            border-left-color: var(--sixwin-red);
         }
 
         /* ============================================
@@ -3072,6 +3195,145 @@
             color: var(--muted);
         }
 
+        /* ============================================
+           SixWin – Register / Deposit / Withdrawal
+           (match Ck Lottery classic neumorphism)
+           ============================================ */
+        #sixWinRegister .register-page-content,
+        #sixWinDeposit .register-page-content,
+        #sixWinWithdrawal .register-page-content {
+            background: var(--neumo-base);
+            border-radius: 26px;
+            padding: clamp(22px, 4vw, 40px);
+            box-shadow: var(--neumo-inset-sm);
+            max-width: 980px;
+        }
+
+        #sixWinRegister .register-step-card,
+        #sixWinDeposit .register-step-card,
+        #sixWinWithdrawal .register-step-card {
+            background: var(--neumo-base);
+            border: none;
+            border-radius: 22px;
+            padding: 26px;
+            box-shadow: var(--neumo-raise);
+            margin-bottom: 28px;
+        }
+
+        #sixWinRegister .register-step-card:hover,
+        #sixWinDeposit .register-step-card:hover,
+        #sixWinWithdrawal .register-step-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--neumo-raise-sm);
+        }
+
+        #sixWinRegister .register-step-card:active,
+        #sixWinDeposit .register-step-card:active,
+        #sixWinWithdrawal .register-step-card:active {
+            box-shadow: var(--neumo-inset);
+            transform: scale(0.998);
+        }
+
+        #sixWinRegister .register-page-links,
+        #sixWinDeposit .register-page-links,
+        #sixWinWithdrawal .register-page-links {
+            margin-bottom: 32px;
+        }
+
+        #sixWinRegister .register-page-links a,
+        #sixWinDeposit .register-page-links a,
+        #sixWinWithdrawal .register-page-links a {
+            background: var(--neumo-base);
+            border: none;
+            color: var(--sixwin-red);
+            font-weight: 700;
+            border-radius: 18px;
+            padding: 12px 22px;
+            box-shadow: var(--neumo-raise-sm);
+        }
+
+        #sixWinRegister .register-page-links a:hover,
+        #sixWinDeposit .register-page-links a:hover,
+        #sixWinWithdrawal .register-page-links a:hover {
+            box-shadow: var(--neumo-raise);
+            color: var(--sixwin-red-hover);
+        }
+
+        #sixWinRegister .register-page-links a:active,
+        #sixWinDeposit .register-page-links a:active,
+        #sixWinWithdrawal .register-page-links a:active {
+            box-shadow: var(--neumo-inset-sm);
+        }
+
+        #sixWinRegister .step-photo-container,
+        #sixWinDeposit .step-photo-container,
+        #sixWinWithdrawal .step-photo-container {
+            background: var(--neumo-base);
+            border: none;
+            border-radius: 20px;
+            box-shadow: var(--neumo-inset-sm);
+            padding: 8px;
+        }
+
+        #sixWinRegister .step-photo-container:hover,
+        #sixWinDeposit .step-photo-container:hover,
+        #sixWinWithdrawal .step-photo-container:hover {
+            box-shadow: var(--neumo-inset);
+        }
+
+        #sixWinRegister .description-text,
+        #sixWinDeposit .description-text,
+        #sixWinWithdrawal .description-text {
+            background: rgba(255, 255, 255, 0.45);
+            border: none;
+            border-radius: 16px;
+            box-shadow: var(--neumo-inset-sm);
+            color: var(--neumo-text);
+            border-left: 4px solid var(--sixwin-red);
+        }
+
+        #sixWinRegister .register-step-card:hover .description-text,
+        #sixWinDeposit .register-step-card:hover .description-text,
+        #sixWinWithdrawal .register-step-card:hover .description-text {
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        #sixWinDeposit .deposit-section-title,
+        #sixWinWithdrawal .deposit-section-title {
+            display: block;
+            width: 100%;
+            max-width: 520px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 14px 22px;
+            border-radius: 999px;
+            background: var(--neumo-base);
+            color: var(--sixwin-red);
+            box-shadow: var(--neumo-inset-sm);
+            font-weight: 800;
+        }
+
+        body.dark-mode #sixWinRegister .register-page-content,
+        body.dark-mode #sixWinDeposit .register-page-content,
+        body.dark-mode #sixWinWithdrawal .register-page-content {
+            background: var(--bg2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        body.dark-mode #sixWinRegister .register-step-card,
+        body.dark-mode #sixWinDeposit .register-step-card,
+        body.dark-mode #sixWinWithdrawal .register-step-card {
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        body.dark-mode #sixWinRegister .description-text,
+        body.dark-mode #sixWinDeposit .description-text,
+        body.dark-mode #sixWinWithdrawal .description-text {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--muted);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .register-page-content {
@@ -3093,13 +3355,16 @@
                 gap: 24px;
             }
 
-            /* Ck Lottery / 777 BigWin — keep 2-column “tablet” layout on phones (photos shrink) */
+            /* Ck Lottery / 777 BigWin / SixWin — keep 2-column “tablet” layout on phones (photos shrink) */
             #ckLotteryRegister .photos-grid-row,
             #ckLotteryDeposit .photos-grid-row,
             #ckLotteryWithdrawal .photos-grid-row,
             #bigWinRegister .photos-grid-row,
             #bigWinDeposit .photos-grid-row,
-            #bigWinWithdrawal .photos-grid-row {
+            #bigWinWithdrawal .photos-grid-row,
+            #sixWinRegister .photos-grid-row,
+            #sixWinDeposit .photos-grid-row,
+            #sixWinWithdrawal .photos-grid-row {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
                 gap: clamp(6px, 2vw, 16px);
             }
@@ -3109,7 +3374,10 @@
             #ckLotteryWithdrawal .photos-grid-row > *,
             #bigWinRegister .photos-grid-row > *,
             #bigWinDeposit .photos-grid-row > *,
-            #bigWinWithdrawal .photos-grid-row > * {
+            #bigWinWithdrawal .photos-grid-row > *,
+            #sixWinRegister .photos-grid-row > *,
+            #sixWinDeposit .photos-grid-row > *,
+            #sixWinWithdrawal .photos-grid-row > * {
                 min-width: 0;
             }
 
@@ -3118,7 +3386,10 @@
             #ckLotteryWithdrawal .photos-grid-row .register-step-card,
             #bigWinRegister .photos-grid-row .register-step-card,
             #bigWinDeposit .photos-grid-row .register-step-card,
-            #bigWinWithdrawal .photos-grid-row .register-step-card {
+            #bigWinWithdrawal .photos-grid-row .register-step-card,
+            #sixWinRegister .photos-grid-row .register-step-card,
+            #sixWinDeposit .photos-grid-row .register-step-card,
+            #sixWinWithdrawal .photos-grid-row .register-step-card {
                 padding: clamp(8px, 2vw, 16px);
             }
 
@@ -3127,7 +3398,10 @@
             #ckLotteryWithdrawal .photos-grid-row .description-text,
             #bigWinRegister .photos-grid-row .description-text,
             #bigWinDeposit .photos-grid-row .description-text,
-            #bigWinWithdrawal .photos-grid-row .description-text {
+            #bigWinWithdrawal .photos-grid-row .description-text,
+            #sixWinRegister .photos-grid-row .description-text,
+            #sixWinDeposit .photos-grid-row .description-text,
+            #sixWinWithdrawal .photos-grid-row .description-text {
                 font-size: clamp(10px, 2.6vw, 14px);
                 padding: clamp(8px, 2vw, 16px);
                 line-height: 1.45;
@@ -3173,7 +3447,10 @@
             #ckLotteryWithdrawal .photos-grid-row .register-step-card,
             #bigWinRegister .photos-grid-row .register-step-card,
             #bigWinDeposit .photos-grid-row .register-step-card,
-            #bigWinWithdrawal .photos-grid-row .register-step-card {
+            #bigWinWithdrawal .photos-grid-row .register-step-card,
+            #sixWinRegister .photos-grid-row .register-step-card,
+            #sixWinDeposit .photos-grid-row .register-step-card,
+            #sixWinWithdrawal .photos-grid-row .register-step-card {
                 padding: 8px 6px;
             }
 
@@ -3182,10 +3459,41 @@
             #ckLotteryWithdrawal .photos-grid-row .description-text,
             #bigWinRegister .photos-grid-row .description-text,
             #bigWinDeposit .photos-grid-row .description-text,
-            #bigWinWithdrawal .photos-grid-row .description-text {
+            #bigWinWithdrawal .photos-grid-row .description-text,
+            #sixWinRegister .photos-grid-row .description-text,
+            #sixWinDeposit .photos-grid-row .description-text,
+            #sixWinWithdrawal .photos-grid-row .description-text {
                 font-size: clamp(9px, 2.8vw, 12px);
                 padding: 8px 6px;
             }
+        }
+
+        /* SixWin Full view styles (embedded external pages) */
+        #SixWin30Mini.mini-page.active,
+        #SixWin1MinMini.mini-page.active {
+            height: 100vh;
+            height: 100dvh;
+            min-height: 0;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 100;
+        }
+        #SixWin30Mini .mini-page-header,
+        #SixWin1MinMini .mini-page-header {
+            display: none;
+        }
+        #SixWin30Mini .mini-page-content,
+        #SixWin1MinMini .mini-page-content {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            flex: 1 1 0;
         }
 
         /* BigWin 30 Sec – full View styles (match BigWin30Mini1-1.html) */
@@ -3730,7 +4038,7 @@
                 <div class="logo-container">
                     <div class="logo-text-container">
                         <div class="logo-text-main"><span class="supersel-red">SUPERSEL</span> EARING</div>
-                        <div class="logo-text-sub">Ck Lottery & 777 BigWin</div>
+                        <div class="logo-text-sub">Ck Lottery & 777 BigWin & SixWin</div>
                     </div>
                 </div>
             </div>
@@ -3767,6 +4075,34 @@
                 <button class="btn btn-ck btn-with-badge" onclick="showMiniPage('CkWingo1Mini1-2')">WinGo 1 Min <span class="special-badge">Special</span></button>
             </div>
             <button class="btn btn-back" onclick="goBackToCkMenu()">← Back</button>
+        </div>
+
+        <!-- SixWin Menu -->
+        <div id="sixWinMenu" class="menu">
+            <span class="menu-label">SixWin</span>
+            <button class="btn btn-sixwin" onclick="showSixWinVersionMenu()">Version 1.1</button>
+            <button class="btn btn-sixwin" onclick="showSixWinVersionMenu12()">Version 1.2</button>
+            <button class="btn btn-back" onclick="goBackToMain()">← Back</button>
+        </div>
+
+        <!-- SixWin Version 1.1 Sub-Menu -->
+        <div id="sixWinVersionMenu" class="menu">
+            <span class="menu-label">Version 1.1</span>
+            <div class="game-buttons">
+                <button class="btn btn-sixwin btn-with-badge" onclick="showMiniPage('SixWin30Mini')">WinGo 30 Sec <span class="special-badge">Special</span></button>
+                <button class="btn btn-sixwin btn-with-badge" onclick="showMiniPage('SixWin1MinMini')">WinGo 1 Min <span class="special-badge">Special</span></button>
+            </div>
+            <button class="btn btn-back" onclick="goBackToSixWinMenu()">← Back</button>
+        </div>
+
+        <!-- SixWin Version 1.2 Sub-Menu -->
+        <div id="sixWinVersionMenu12" class="menu">
+            <span class="menu-label">Version 1.2</span>
+            <div class="game-buttons">
+                <button class="btn btn-sixwin btn-with-badge" onclick="showMiniPage('SixWin30Mini1-2')">WinGo 30 Sec <span class="special-badge">Special</span></button>
+                <button class="btn btn-sixwin btn-with-badge" onclick="showMiniPage('SixWin1MinMini1-2')">WinGo 1 Min <span class="special-badge">Special</span></button>
+            </div>
+            <button class="btn btn-back" onclick="goBackToSixWinMenu()">← Back</button>
         </div>
 
         <!-- Global Trx Prediction Menu -->
@@ -3834,7 +4170,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/ck30mini1-1.html"
+                src="Mini/CkMini/ck30mini1-1.html"
                 title="WinGo 30 Sec - Ck Lottery Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3850,7 +4186,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/ck30mini1-1-free.html"
+                src="Mini/CkMini/ck30mini1-1-free.html"
                 title="WinGo 30 Sec - Ck Lottery Prediction (Free)"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3866,7 +4202,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/ck1mini1-1.html"
+                src="Mini/CkMini/ck1mini1-1.html"
                 title="WinGo 1 Min - Ck Lottery Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3882,7 +4218,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/global_trx1mini1-1.html"
+                src="Mini/Global_TrxMini/global_trx1mini1-1.html"
                 title="Global Trx 1 Min - Global Trx Prediction v1.1"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3899,7 +4235,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/ck30mini1-2.html"
+                src="Mini/CkMini/ck30mini1-2.html"
                 title="WinGo 30 Sec - Ck Lottery Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3915,7 +4251,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/ck1mini1-2.html"
+                src="Mini/CkMini/ck1mini1-2.html"
                 title="WinGo 1 Min - Ck Lottery Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3931,8 +4267,73 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/global_trx1mini1-2.html"
+                src="Mini/Global_TrxMini/global_trx1mini1-2.html"
                 title="Global Trx 1 Min - Global Trx Prediction v1.2"
+                style="display: block; width: 100%; height: 100%; border: none; background: #000;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Mini Pages - SixWin -->
+    <div id="SixWin30Mini" class="mini-page">
+        <button class="btn btn-back" onclick="goBackToSixWin()">← Back</button>
+        <div class="mini-page-header">
+            <h2>WinGo 30 Sec</h2>
+            <span>SixWin • Version 1.1</span>
+        </div>
+        <div class="mini-page-content" style="padding: 0; background: #000;">
+            <iframe
+                src="Mini/SixMini/6_30mini1-1.html"
+                title="WinGo 30 Sec - SixWin Prediction v1.1"
+                style="display: block; width: 100%; height: 100%; border: none; background: #000;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div id="SixWin1MinMini" class="mini-page">
+        <button class="btn btn-back" onclick="goBackToSixWin()">← Back</button>
+        <div class="mini-page-header">
+            <h2>WinGo 1 Min</h2>
+            <span>SixWin • Version 1.1</span>
+        </div>
+        <div class="mini-page-content" style="padding: 0; background: #000;">
+            <iframe
+                src="Mini/SixMini/6_1mini1-1.html"
+                title="WinGo 1 Min - SixWin Prediction v1.1"
+                style="display: block; width: 100%; height: 100%; border: none; background: #000;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div id="SixWin30Mini1-2" class="mini-page">
+        <button class="btn btn-back" onclick="goBackToSixWin()">← Back</button>
+        <div class="mini-page-header">
+            <h2>WinGo 30 Sec</h2>
+            <span>SixWin • Version 1.2</span>
+        </div>
+        <div class="mini-page-content" style="padding: 0; background: #000;">
+            <iframe
+                src="Mini/SixMini/6_30mini1-2.html"
+                title="WinGo 30 Sec - SixWin Prediction v1.2"
+                style="display: block; width: 100%; height: 100%; border: none; background: #000;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div id="SixWin1MinMini1-2" class="mini-page">
+        <button class="btn btn-back" onclick="goBackToSixWin()">← Back</button>
+        <div class="mini-page-header">
+            <h2>WinGo 1 Min</h2>
+            <span>SixWin • Version 1.2</span>
+        </div>
+        <div class="mini-page-content" style="padding: 0; background: #000;">
+            <iframe
+                src="Mini/SixMini/6_1mini1-2.html"
+                title="WinGo 1 Min - SixWin Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
             </iframe>
@@ -3947,7 +4348,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/preditionrate.html"
+                src="Mini/preditionrate.html"
                 title="Prediction Rate"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -3964,7 +4365,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="ck%20wingo%2030%20sce/ck30results.html"
+                src="History%20Chat/Ck%20WinGo%2030/ck30results.html"
                 title="CK WinGo 30 Sec - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -3980,7 +4381,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="ck%20wingo1/ck1result.html"
+                src="History%20Chat/Ck%20WinGo%201/ck1result.html"
                 title="CK WinGo 1 Min - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -3996,7 +4397,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="bigwin%20wingo%2030/bigwin30results.html"
+                src="History%20Chat/BigWin%20WinGo%2030/bigwin30results.html"
                 title="777 BigWin WinGo 30 Sec - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -4012,7 +4413,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="bigwin%20wingo1/bigwin1results.html"
+                src="History%20Chat/BigWin%20WinGo%201/bigwin1results.html"
                 title="777 BigWin WinGo 1 Min - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
@@ -4028,8 +4429,40 @@
         </div>
         <div class="mini-page-content" style="padding: 0;">
             <iframe
-                src="global%20trx/global_trx1results.html"
+                src="History%20Chat/Global_Trx%201/global_trx1results.html"
                 title="Global TRX Trx1Min - History Chats"
+                style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div id="sixWin30HistoryChats" class="mini-page">
+        <button class="btn btn-back" onclick="goBackFromSidebarPage()">← Back</button>
+        <div class="mini-page-header">
+            <h2>WinGo 30 Sec</h2>
+            <span>SixWin · History Chats</span>
+        </div>
+        <div class="mini-page-content" style="padding: 0;">
+            <iframe
+                src="History%20Chat/SixWin%20WinGo%2030/6_30results.html"
+                title="SixWin WinGo 30 Sec - History Chats"
+                style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
+                loading="lazy">
+            </iframe>
+        </div>
+    </div>
+
+    <div id="sixWin1HistoryChats" class="mini-page">
+        <button class="btn btn-back" onclick="goBackFromSidebarPage()">← Back</button>
+        <div class="mini-page-header">
+            <h2>WinGo 1 Min</h2>
+            <span>SixWin · History Chats</span>
+        </div>
+        <div class="mini-page-content" style="padding: 0;">
+            <iframe
+                src="History%20Chat/SixWin%20WinGo%201/6_1result.html"
+                title="SixWin WinGo 1 Min - History Chats"
                 style="display: block; width: 100%; height: 100%; border: none; background: transparent;"
                 loading="lazy">
             </iframe>
@@ -4045,7 +4478,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/bigwin30min1-1.html"
+                src="Mini/BigWinMini/bigwin30min1-1.html"
                 title="WinGo 30 Sec - 777 BigWin Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4061,7 +4494,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/bigwin30mini1-1-free.html"
+                src="Mini/BigWinMini/bigwin30mini1-1-free.html"
                 title="WinGo 30 Sec - 777 BigWin Prediction (Free)"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4077,7 +4510,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/bigwin1mini1-1.html"
+                src="Mini/BigWinMini/bigwin1mini1-1.html"
                 title="WinGo 1 Min - 777 BigWin Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4094,7 +4527,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/bigwin30mini1-2.html"
+                src="Mini/BigWinMini/bigwin30mini1-2.html"
                 title="WinGo 30 Sec - 777 BigWin Prediction v1.2"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4110,7 +4543,7 @@
         </div>
         <div class="mini-page-content" style="padding: 0; background: #000;">
             <iframe
-                src="mini/bigwin1mini1-2.html"
+                src="Mini/BigWinMini/bigwin1mini1-2.html"
                 title="WinGo 1 Min - 777 BigWin Prediction"
                 style="display: block; width: 100%; height: 100%; border: none; background: #000;"
                 loading="lazy">
@@ -4134,6 +4567,10 @@
             <div class="premium-active-row">
                 <span class="premium-active-label">777 BigWim Prediction Actvied</span>
                 <span class="premium-active-time" id="premiumBwTime">00:00:00</span>
+            </div>
+            <div class="premium-active-row">
+                <span class="premium-active-label">SixWin Prediction Actvied</span>
+                <span class="premium-active-time" id="premiumSixTime">00:00:00</span>
             </div>
             <div class="premium-active-row">
                 <span class="premium-active-label">Global Trx Prediction Actvied</span>
@@ -4177,7 +4614,25 @@
                 </div>
             </div>
 
-            <!-- Group 3: Ck Lottery Prediction -->
+            <!-- Group 3: SixWin -->
+            <div class="sidebar-group">
+                <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-group-title" onclick="toggleSidebarGroup('sixwin')" aria-expanded="false" aria-controls="sidebarSixWinSub">
+                    SixWin
+                </button>
+                <div class="sidebar-sub-buttons" id="sidebarSixWinSub" role="region">
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn" onclick="navigateToPage('sixWinRegister')">
+                        SixWin ( Register )
+                    </button>
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn" onclick="navigateToPage('sixWinDeposit')">
+                        SixWin ( Deposit )
+                    </button>
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn" onclick="navigateToPage('sixWinWithdrawal')">
+                        SixWin ( Withdrawal )
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 4: Ck Lottery Prediction -->
             <div class="sidebar-group">
                 <button type="button" class="sidebar-btn sidebar-btn-ck sidebar-group-title" onclick="toggleSidebarGroup('ckPrediction')" aria-expanded="false" aria-controls="sidebarCkPredictionSub">
                     Ck Lottery Prediction
@@ -4203,7 +4658,7 @@
                 </div>
             </div>
 
-            <!-- Group 4: 777 BigWin Prediction -->
+            <!-- Group 5: 777 BigWin Prediction -->
             <div class="sidebar-group">
                 <button type="button" class="sidebar-btn sidebar-btn-bigwin sidebar-group-title" onclick="toggleSidebarGroup('bigWinPrediction')" aria-expanded="false" aria-controls="sidebarBigWinPredictionSub">
                     777 BigWin Prediction
@@ -4229,7 +4684,30 @@
                 </div>
             </div>
 
-            <!-- Group 5: Global Trx Prediction -->
+            <!-- Group 6: SixWin Prediction -->
+            <div class="sidebar-group">
+                <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-group-title" onclick="toggleSidebarGroup('sixwinPrediction')" aria-expanded="false" aria-controls="sidebarSixWinPredictionSub">
+                    SixWin Prediction
+                </button>
+                <div class="sidebar-sub-buttons" id="sidebarSixWinPredictionSub" role="region">
+                    <div class="sidebar-version-label">Version 1.1</div>
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn btn-with-badge" onclick="openMiniPageFromSidebar('SixWin30Mini')">
+                        WinGo 30 Sec <span class="special-badge">Special</span>
+                    </button>
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn btn-with-badge" onclick="openMiniPageFromSidebar('SixWin1MinMini')">
+                        WinGo 1 Min <span class="special-badge">Special</span>
+                    </button>
+                    <div class="sidebar-version-label">Version 1.2</div>
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn btn-with-badge" onclick="openMiniPageFromSidebar('SixWin30Mini1-2')">
+                        WinGo 30 Sec <span class="special-badge">Special</span>
+                    </button>
+                    <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn btn-with-badge" onclick="openMiniPageFromSidebar('SixWin1MinMini1-2')">
+                        WinGo 1 Min <span class="special-badge">Special</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Group 7: Global Trx Prediction -->
             <div class="sidebar-group">
                 <button type="button" class="sidebar-btn sidebar-btn-globaltrx sidebar-group-title" onclick="toggleSidebarGroup('globalTrxPrediction')" aria-expanded="false" aria-controls="sidebarGlobalTrxPredictionSub">
                     Global Trx Prediction
@@ -4249,11 +4727,6 @@
             <!-- Prediction Rate (Link View – same as Global Trx 1 Min) -->
             <button type="button" class="sidebar-btn sidebar-btn-predrate" onclick="openMiniPageFromSidebar('predictionRate')">
                 Prediction Rate
-            </button>
-
-            <!-- Prediction Menus (NEWLY ADDED) -->
-            <button type="button" class="sidebar-btn sidebar-btn-ck" onclick="openPredictionPage()">
-                Prediction Menus
             </button>
 
             <!-- History Chats (nested) -->
@@ -4299,6 +4772,22 @@
                     </div>
 
                     <button type="button"
+                        class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn"
+                        onclick="toggleHistoryChatsInner('sixwin')">
+                        SixWin
+                    </button>
+                    <div class="sidebar-sub-buttons sidebar-history-nested" id="sidebarHistoryChatsSixWinSub" role="region">
+                        <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn"
+                            onclick="openMiniPageFromSidebar('sixWin30HistoryChats')">
+                            WinGo30Sec
+                        </button>
+                        <button type="button" class="sidebar-btn sidebar-btn-sixwin sidebar-sub-btn"
+                            onclick="openMiniPageFromSidebar('sixWin1HistoryChats')">
+                            WinGo1Min
+                        </button>
+                    </div>
+
+                    <button type="button"
                         class="sidebar-btn sidebar-btn-globaltrx sidebar-sub-btn"
                         onclick="toggleHistoryChatsInner('global')">
                         Global Trx
@@ -4339,7 +4828,7 @@
             <!-- Step 1: Photo 1 with Registration Button -->
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="ck registar photos/photo_1.jpg" alt="Ck Lottery Register Step 1" class="step-photo" />
+                    <img src="Ck Lottery/Ck Lottery Register Photo/photo_1.jpg" alt="Ck Lottery Register Step 1" class="step-photo" />
                 </div>
                 <a href="http://www.cklottery.top/#/register?invitationCode=81487219676" 
                    target="_blank" 
@@ -4356,7 +4845,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck registar photos/photo_2.jpg" alt="Ck Lottery Register Step 2" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Register Photo/photo_2.jpg" alt="Ck Lottery Register Step 2" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Set Password & Confirm Password နေရာတွင် ကိုယ်အသုံးပြုမည် Ck Lottery Account Password ကိုရိုက်ထည့်ပါ။<br><br>- Set / Confirm Password 2ခုတူညီရမည်။ (ဥပမာ - Set Password - Abc11111, Confirm Password - Abc11111)</p>
@@ -4365,7 +4854,7 @@
 
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck registar photos/photo_3.jpg" alt="Ck Lottery Register Step 3" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Register Photo/photo_3.jpg" alt="Ck Lottery Register Step 3" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Invite Code ရေးနေရာတွင်း ( 81487219676 ) ရိုက်ထည့်ပါ။</p>
@@ -4377,7 +4866,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck registar photos/photo_4.jpg" alt="Ck Lottery Register Step 4" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Register Photo/photo_4.jpg" alt="Ck Lottery Register Step 4" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- I Have Read And Agree နေရာမှ (အမှန်ခြစ်)တပ်ပါ</p>
@@ -4386,7 +4875,7 @@
 
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck registar photos/photo_5.jpg" alt="Ck Lottery Register Step 5" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Register Photo/photo_5.jpg" alt="Ck Lottery Register Step 5" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Account Information အပြည်အစုံထည့်ပြီးရင် Register ကိုနိပ်ပါ<br><br>- ဒါဆိုရင် Ck Lottery Account ဖွင့်သွားပါပြီး။</p>
@@ -4409,7 +4898,7 @@
             <!-- Step 1: Photo 1 with Registration Button -->
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="777 bigwin register photos/b_photos_1.jpg" alt="777 BigWin Register Step 1" class="step-photo" />
+                    <img src="BigWin/BigWin Register Photo/b_photos_1.jpg" alt="777 BigWin Register Step 1" class="step-photo" />
                 </div>
                 <a href="https://www.777bigwingame.vip/#/register?invitationCode=22884102596" 
                    target="_blank" 
@@ -4426,7 +4915,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777 bigwin register photos/b_photos_2.jpg" alt="777 BigWin Register Step 2" class="step-photo" />
+                        <img src="BigWin/BigWin Register Photo/b_photos_2.jpg" alt="777 BigWin Register Step 2" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Set Password & Confirm Password နေရာတွင် ကိုယ်အသုံးပြုမည် 777 BigWin Account Password ကိုရိုက်ထည့်ပါ။<br><br>- Set / Confirm Password 2ခုတူညီရမည်။ (ဥပမာ - Set Password - Abc11111, Confirm Password - Abc11111)</p>
@@ -4435,7 +4924,7 @@
 
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777 bigwin register photos/b_photos_3.jpg" alt="777 BigWin Register Step 3" class="step-photo" />
+                        <img src="BigWin/BigWin Register Photo/b_photos_3.jpg" alt="777 BigWin Register Step 3" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Invite Code ရေးနေရာတွင်း ( 22884102596 ) ရိုက်ထည့်ပါ။</p>
@@ -4447,7 +4936,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777 bigwin register photos/b_photos_4.jpg" alt="777 BigWin Register Step 4" class="step-photo" />
+                        <img src="BigWin/BigWin Register Photo/b_photos_4.jpg" alt="777 BigWin Register Step 4" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- I Have Read And Agree နေရာမှ (အမှန်ခြစ်)တပ်ပါ</p>
@@ -4456,10 +4945,79 @@
 
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777 bigwin register photos/b_photos_5.jpg" alt="777 BigWin Register Step 5" class="step-photo" />
+                        <img src="BigWin/BigWin Register Photo/b_photos_5.jpg" alt="777 BigWin Register Step 5" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Account Information အပြည်အစုံထည့်ပြီးရင် Register ကိုနိပ်ပါ<br><br>- ဒါဆိုရင် 777 BigWin Account ဖွင့်သွားပါပြီး။</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sixWinRegister" class="screen">
+        <div class="register-page-content">
+            <h1 class="register-title">SixWin ( Account ဖွင့်နည်း )</h1>
+            <p class="register-page-intro">အောက်ပါအဆင့်များအတိုင်းလိုက်နာပါ။</p>
+            <div class="register-page-links">
+                <a href="javascript:void(0)" onclick="navigateToPage('sixWinDeposit')">ငွေသွင်းနည်း</a>
+                <a href="javascript:void(0)" onclick="navigateToPage('sixWinWithdrawal')">ငွေထုတ်နည်း</a>
+            </div>
+            
+            <!-- Step 1: Photo 1 with Registration Button -->
+            <div class="register-step-card">
+                <div class="step-photo-container">
+                    <img src="SixWin/Six Win Register Photo/photo_1.jpg" alt="SixWin Register Step 1" class="step-photo" />
+                </div>
+                <a href="https://www.6win333.com/#/register?invitationCode=35815623835" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="register-now-btn sixwin-register-btn">
+                    SixWin Register Now
+                </a>
+                <div class="step-description">
+                    <p class="description-text">- SixWin Register Now ကိုနိပ်ပါ။<br><br>- SixWin Register Page ကိုရောက်ရင် Phone Number နေရာတွင်း Account ဖွင့်မဲ့ Phone Number ထည့်သွင်းပါ။<br><br>- Phone Number ထည့်တဲ့နေရာတွင်း ( 09 မခံရ ) 9တစ်လုံးပဲခံပြီး Phone Number ကိုရိုက်ထည့်ပါ။ ဥပမာ - 9123456789</p>
+                </div>
+            </div>
+
+            <!-- Photos 2-3: Two Column Grid -->
+            <div class="photos-grid-row">
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Register Photo/photo_2.jpg" alt="SixWin Register Step 2" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Set Password & Confirm Password နေရာတွင် ကိုယ်အသုံးပြုမည့် SixWin Account Password ကို ရိုက်ထည့်ပါ။<br><br>- Set / Confirm Password 2ခုတူညီရမည်။ (ဥပမာ - Set Password - Abc11111, Confirm Password - Abc11111)</p>
+                    </div>
+                </div>
+
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Register Photo/photo_3.jpg" alt="SixWin Register Step 3" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Invite Code ရေးနေရာတွင် : ( 35815623835 ) ရိုက်ထည့်ပါ။</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photos 4-5: Two Column Grid -->
+            <div class="photos-grid-row">
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Register Photo/photo_4.jpg" alt="SixWin Register Step 4" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- I Have And Agree နေရာမှ (အမှန်ခြစ်) တပ်ပါ</p>
+                    </div>
+                </div>
+
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Register Photo/photo_5.jpg" alt="SixWin Register Step 5" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Account Information အပြည်အစုံ ထည့်ပြီးရင် Register ကို နှိပ်ပါ<br><br>- ဒါဆိုရင် SixWin Account ဖွင့်သွားပါပြီ။</p>
                     </div>
                 </div>
             </div>
@@ -4487,7 +5045,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="ck lotter deposit/p1.jpg" alt="Ck Lottery Deposit Step 1" class="step-photo" />
+                    <img src="Ck Lottery/Ck Lottery deposite Photo/p1.jpg" alt="Ck Lottery Deposit Step 1" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- Ck Lottery Account ထဲကိုဝင်ပါ</p>
@@ -4497,7 +5055,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p2.jpg" alt="Ck Lottery Deposit Step 2" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p2.jpg" alt="Ck Lottery Deposit Step 2" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Deposit ကိုနိပ်ပါ</p>
@@ -4505,7 +5063,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p3.jpg" alt="Ck Lottery Deposit Step 3" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p3.jpg" alt="Ck Lottery Deposit Step 3" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Kpay / Wave နဲတိုက်ရိုက်သွင်းရသလို ပုံမှန်ထက်ပိုမြန်ချင်းတယ်ဆိုရင် E-Wallet နဲငွေသွင်းလိုရပါတယ်။<br><br>- Recommend - 10သိန်းအောက်ငွေသွင်းမယ်ဆိုရင် E-Wallet နဲသွင်းပါ။<br><br>- Recommend- 10သိန်းအထက်ငွေသွင်းမယ်ဆိုရင် ပုံမှန် Kpay / Wave နဲတိုက်ရိုက်သွင်းပါ။</p>
@@ -4518,7 +5076,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p4.jpg" alt="Ck Lottery Deposit Step 4" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p4.jpg" alt="Ck Lottery Deposit Step 4" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Kpay သို့မဟုတ် Wave ကိုရွေးချယ်ပါ။<br>- Deposit Amount တွင်း ကိုယ်ထည့်မဲ့ ငွေအမောက်ကိုရိုက်ထည့်ပါ။<br>- Deposit ( Amount ) Button ကိုနိပ်ပါ။</p>
@@ -4526,7 +5084,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p6.jpg" alt="Ck Lottery Deposit Step 5" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p6.jpg" alt="Ck Lottery Deposit Step 5" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Full Name မှ ကိုယ် ငွေလွဲရမဲ့ Account Name ပြထားပါတယ်။<br><br>- Account မှ ကိုယ်လွဲရမဲ့ Account Phone Number ပြထားပါတယ်။<br><br>- Balance မှ ကိုယ်လွဲမည်အမောက်ပြထားပါတယ်။<br><br>- Phone Number ကို Copy ယူပြီး ငွေလွဲလိုက်ပါ။</p>
@@ -4536,7 +5094,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="ck lotter deposit/p7.jpg" alt="Ck Lottery Deposit Step 7" class="step-photo" />
+                    <img src="Ck Lottery/Ck Lottery deposite Photo/p7.jpg" alt="Ck Lottery Deposit Step 7" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- ငွေလွဲပြီးပါက Complete Payment ကိုနိပ်ပါ။<br><br>- ငွေသွင်းအော်ဒါအောင်မြင်ပါပြီး<br><br>- ခဏကြားရင်ကိုယ် Ck Account ထဲကိုကိုယ်လွဲထားတဲ့ငွေ Amount အတိအကျရောက်လာပါလိမ့်မယ်။</p>
@@ -4548,7 +5106,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p8.jpg" alt="Ck Lottery Deposit Step 8" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p8.jpg" alt="Ck Lottery Deposit Step 8" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- E-Wallet ကိုရွေးချယ်ပါ<br><br>- Select Channel မှ ဘယ်ဘက် အပြာနဲ ပြထားတာဟာ Kpay ဖြစ်ပြီး ညာဘက်က အဝါနဲပြထားတာက Wave ဖြစ်ပါတယ်။<br><br>- Kpay Wave တစ်ခုချင်းစီမှ Channel 3ခုစီရှိပါတယ်။ အဆင်ပြေတာရွေးချယ်လိုရပါတယ်။</p>
@@ -4556,7 +5114,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p13.jpg" alt="Ck Lottery Deposit Step 13" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p13.jpg" alt="Ck Lottery Deposit Step 13" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Channel ရွေးချယ်ပြီးရင် အ ပေါ်ကိုဆွဲတင်ပါ။<br><br>- Deposit Amount မှ ငွေသွင်းမဲ့ငွေအမောက်ကိုရိုက်ထည့်ပါ။<br><br>- Deposit ( Amount ) Button ကိုနိပ်ပါ။</p>
@@ -4567,7 +5125,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p10.jpg" alt="Ck Lottery Deposit Step 10" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p10.jpg" alt="Ck Lottery Deposit Step 10" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- QR Code ပါလာရင် Scanner လုပ်ပါ။<br><br>- QR Code မပါခဲ့ရင် Phone Number Copy ယူပြီးငွေလွဲပါ။</p>
@@ -4575,7 +5133,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck lotter deposit/p11.jpg" alt="Ck Lottery Deposit Step 11" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery deposite Photo/p11.jpg" alt="Ck Lottery Deposit Step 11" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- ငွေလွဲပြီးပါက ငွေလွဲပြေစာရဲ့နောက်ဆုံး ( လုပ်ငန်းစဉ်နံပတ် ) ၆လုံးကိုရိုက်ထည့်ပေးပါ။<br><br>- (တင်ပြပါ)ကိုနိပ်ပါ။</p>
@@ -4585,7 +5143,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="ck lotter deposit/p12.jpg" alt="Ck Lottery Deposit Step 12" class="step-photo" />
+                    <img src="Ck Lottery/Ck Lottery deposite Photo/p12.jpg" alt="Ck Lottery Deposit Step 12" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- အခုလိုမျိူ:(လုပ်ငန်းစဉ် )ကိုစစ်ဆေးနေပါသည်ဆိုတဲ့ Page ရောက်သွားရင် ငွေသွင်းအော်တာ တင်တာအောင်မြင်ပါပြီး။<br><br>- ခဏနေရင် Ck Lottery Account ထဲကိုငွေရောက်လာပါလိမ့်မယ်။</p>
@@ -4601,7 +5159,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="ck withdraw/p1.jpg" alt="Ck Lottery Withdrawal Step 1" class="step-photo" />
+                    <img src="Ck Lottery/Ck Lottery Withdraw Photo/p1.jpg" alt="Ck Lottery Withdrawal Step 1" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- Ck Lottery Account ထဲကိုဝင်ပေးပါ။</p>
@@ -4611,7 +5169,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck withdraw/p2.jpg" alt="Ck Lottery Withdrawal Step 2" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Withdraw Photo/p2.jpg" alt="Ck Lottery Withdrawal Step 2" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Withdrawal ကိုနိပ်ပါ</p>
@@ -4619,7 +5177,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck withdraw/p3.jpg" alt="Ck Lottery Withdrawal Step 3" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Withdraw Photo/p3.jpg" alt="Ck Lottery Withdrawal Step 3" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Wave သို့မဟုတ် Kpay ငွေထုတ်မဲ့ Wallet ကိုရွေးချယ်ပါ။<br><br>- Add Wallet မလုပ်ရသေးရင် Add (+) ကိုနိပ်ပြီး Wave / Kpay Phone Number Name ရိုက်ထည့်ပါ။</p>
@@ -4630,7 +5188,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck withdraw/p4.jpg" alt="Ck Lottery Withdrawal Step 4" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Withdraw Photo/p4.jpg" alt="Ck Lottery Withdrawal Step 4" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- အခုလိုမျိုးဖြစ်သွားပြီးဆိုရင် စတင်ငွေထုတ်လိုရပါပြီး</p>
@@ -4638,7 +5196,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="ck withdraw/p5.jpg" alt="Ck Lottery Withdrawal Step 5" class="step-photo" />
+                        <img src="Ck Lottery/Ck Lottery Withdraw Photo/p5.jpg" alt="Ck Lottery Withdrawal Step 5" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Please Enter The Amount မှ ငွေထုတ်ယူမဲ့ ငွေအမောက်ကိုရိုက်ထည့်ပါ။<br><br>- Withdrawal ကိုနိပ်ပါ။ ဒါဆိုရင် ငွေထုတ်အော်ဒါတင်ချင်းအောင်မြင်ပါပြီး<br>- ခဏကြာရင် Wallet ထဲကိုငွေရောက်လာပါလိမ့်မယ်။</p>
@@ -4655,7 +5213,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="777bigwin deposit/p1.jpg" alt="777 BigWin Deposit Step 1" class="step-photo" />
+                    <img src="BigWin/BigWin Deposite Photo/p1.jpg" alt="777 BigWin Deposit Step 1" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- 777 BigWin ထဲကိုဝင်ပါ။</p>
@@ -4665,7 +5223,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p2.jpg" alt="777 BigWin Deposit Step 2" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p2.jpg" alt="777 BigWin Deposit Step 2" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Deposit ကိုနိပ်ပါ။</p>
@@ -4673,7 +5231,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p3.jpg" alt="777 BigWin Deposit Step 3" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p3.jpg" alt="777 BigWin Deposit Step 3" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Kpay / Wave နဲတိုက်ရိုက်သွင်းရသလို ပုံမှန်ထက်ပိုမြန်ချင်းတယ်ဆိုရင် Online Pay နဲငွေသွင်းလိုရပါတယ်။<br><br>- Recommend - 10သိန်းအောက်ငွေသွင်းမယ်ဆိုရင် Online နဲသွင်းပါ။<br><br>- Recommend- 10သိန်းအထက်ငွေသွင်းမယ်ဆိုရင် ပုံမှန် Kpay / Wave နဲတိုက်ရိုက်သွင်းပါ။</p>
@@ -4686,7 +5244,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p4.jpg" alt="777 BigWin Deposit Step 4" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p4.jpg" alt="777 BigWin Deposit Step 4" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Kpay သို့မဟုတ် Wave ကိုရွေးချယ်ပါ။<br><br>- Deposit Amount တွင်း ကိုယ်ထည့်မဲ့ ငွေအမောက်ကိုရိုက်ထည့်ပါ။<br><br>- Deposit ( Amount ) Button ကိုနိပ်ပါ။</p>
@@ -4694,7 +5252,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p5.jpg" alt="777 BigWin Deposit Step 5" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p5.jpg" alt="777 BigWin Deposit Step 5" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Full Name မှ ကိုယ် ငွေလွဲရမဲ့ Account Name ပြထားပါတယ်။<br><br>- Account မှ ကိုယ်လွဲရမဲ့ Account Phone Number ပြထားပါတယ်။<br><br>- Balance မှ ကိုယ်လွဲမည်အမောက်ပြထားပါတယ်။<br><br>- Phone Number ကို Copy ယူပြီး ငွေလွဲလိုက်ပါ။</p>
@@ -4704,7 +5262,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="777bigwin deposit/p6.jpg" alt="777 BigWin Deposit Step 6" class="step-photo" />
+                    <img src="BigWin/BigWin Deposite Photo/p6.jpg" alt="777 BigWin Deposit Step 6" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- ငွေလွဲပြီးပါက Complete Payment ကိုနိပ်ပါ။<br><br>- ငွေသွင်းအော်ဒါအောင်မြင်ပါပြီး<br><br>- ခဏကြားရင်ကိုယ် 777 BigWin Account ထဲကိုကိုယ်လွဲထားတဲ့ငွေ Amount အတိအကျရောက်လာပါလိမ့်မယ်။</p>
@@ -4716,7 +5274,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p7.jpg" alt="777 BigWin Deposit Step 7" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p7.jpg" alt="777 BigWin Deposit Step 7" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Online Pay ကိုရွေးချယ်ပါ<br><br>- အဝါနဲပြထားတာဟာ Wave Pay ဖြစ်ပါတယ်။<br><br>- အပြာနဲပြထားတာဟာ Kpay ဖြစ်ပါတယ်။<br><br>- Kpay Wave ကိုသေးသေးခြားခြား Channel Title ကြည်ပြီး ရွေးချယ်ပါ။</p>
@@ -4724,7 +5282,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p8.jpg" alt="777 BigWin Deposit Step 8" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p8.jpg" alt="777 BigWin Deposit Step 8" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Kpay Wave Channel ရွေးချယ်ပြီးရင်‌အပေါ်ကို‌ဆွဲတင်ပါ။<br><br>- Deposit Amount မှ ငွေသွင်းမဲ့ Amount ကိုရိုက်ထည့်ပါ။<br><br>- Deposit Button ကိုနိပ်ပါ။</p>
@@ -4735,7 +5293,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p9.jpg" alt="777 BigWin Deposit Step 9" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p9.jpg" alt="777 BigWin Deposit Step 9" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- QR Code ပါလာရင် Scanner လုပ်ပါ။<br><br>- QR Code မပါခဲ့ရင် Phone Number Copy ယူပြီးငွေလွဲပါ။</p>
@@ -4743,7 +5301,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin deposit/p10.jpg" alt="777 BigWin Deposit Step 10" class="step-photo" />
+                        <img src="BigWin/BigWin Deposite Photo/p10.jpg" alt="777 BigWin Deposit Step 10" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- ငွေလွဲပြီးပါက ငွေလွဲပြေစာရဲ့နောက်ဆုံး ( လုပ်ငန်းစဉ်နံပတ် ) ၅လုံးကိုရိုက်ထည့်ပေးပါ။<br><br>- (တင်ပြပါ)ကိုနိပ်ပါ။</p>
@@ -4753,7 +5311,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="777bigwin deposit/p11.jpg" alt="777 BigWin Deposit Step 11" class="step-photo" />
+                    <img src="BigWin/BigWin Deposite Photo/p11.jpg" alt="777 BigWin Deposit Step 11" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- အခုလိုဖြစ်သွားရင် ငွေသွင်းအော်ဒါတင်တာအောင်မြင်ပါပြီး<br><br>- ခဏကြာရင် BigWin Account ထဲကိုငွေရောက်လာပါလိမ်မယ်။</p>
@@ -4769,7 +5327,7 @@
 
             <div class="register-step-card">
                 <div class="step-photo-container">
-                    <img src="777bigwin withdraw/p1.jpg" alt="777 BigWin Withdrawal Step 1" class="step-photo" />
+                    <img src="BigWin/BigWin Withdraw Photo/p1.jpg" alt="777 BigWin Withdrawal Step 1" class="step-photo" />
                 </div>
                 <div class="step-description">
                     <p class="description-text">- 777 BigWin Account ထဲကိုဝင်ပေးပါ။</p>
@@ -4779,7 +5337,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin withdraw/p2.jpg" alt="777 BigWin Withdrawal Step 2" class="step-photo" />
+                        <img src="BigWin/BigWin Withdraw Photo/p2.jpg" alt="777 BigWin Withdrawal Step 2" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Withdrawal ကိုနိပ်ပါ</p>
@@ -4787,7 +5345,7 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin withdraw/p3.jpg" alt="777 BigWin Withdrawal Step 3" class="step-photo" />
+                        <img src="BigWin/BigWin Withdraw Photo/p3.jpg" alt="777 BigWin Withdrawal Step 3" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Wave သို့မဟုတ် Kpay ငွေထုတ်မဲ့ Wallet ကိုရွေးချယ်ပါ။<br><br>- Add Wallet မလုပ်ရသေးရင် Add (+) ကိုနိပ်ပြီး Wave / Kpay Phone Number Name ရိုက်ထည့်ပါ။</p>
@@ -4798,7 +5356,7 @@
             <div class="photos-grid-row">
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin withdraw/p4.jpg" alt="777 BigWin Withdrawal Step 4" class="step-photo" />
+                        <img src="BigWin/BigWin Withdraw Photo/p4.jpg" alt="777 BigWin Withdrawal Step 4" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- အခုလိုမျိုးဖြစ်သွားပြီးဆိုရင် စတင်ငွေထုတ်လိုရပါပြီး</p>
@@ -4806,10 +5364,128 @@
                 </div>
                 <div class="register-step-card">
                     <div class="step-photo-container">
-                        <img src="777bigwin withdraw/p5.jpg" alt="777 BigWin Withdrawal Step 5" class="step-photo" />
+                        <img src="BigWin/BigWin Withdraw Photo/p5.jpg" alt="777 BigWin Withdrawal Step 5" class="step-photo" />
                     </div>
                     <div class="step-description">
                         <p class="description-text">- Please Enter The Amount မှ ငွေထုတ်ယူမဲ့ ငွေအမောက်ကိုရိုက်ထည့်ပါ။<br><br>- Withdrawal ကိုနိပ်ပါ။ ဒါဆိုရင် ငွေထုတ်အော်ဒါတင်ချင်းအောင်မြင်ပါပြီး<br>- ခဏကြာရင် Wallet ထဲကိုငွေရောက်လာပါလိမ့်မယ်။</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SixWin Deposit / Withdrawal -->
+    <div id="sixWinDeposit" class="screen">
+        <div class="register-page-content">
+            <h1 class="register-title">SixWin ငွေသွင်းနည်း</h1>
+            <p class="register-page-intro">Kpay / Wave ဖြင့်ငွေသွင်းနည်း။</p>
+
+            <div class="register-step-card">
+                <div class="step-photo-container">
+                    <img src="SixWin/Six Win Deposite Photo/photo_1.jpg" alt="SixWin Deposit Step 1" class="step-photo" />
+                </div>
+                <div class="step-description">
+                    <p class="description-text">- SixWin Account ကိုနိပ်ပါ</p>
+                </div>
+            </div>
+
+            <div class="photos-grid-row">
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Deposite Photo/photo_2.jpg" alt="SixWin Deposit Step 2" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Deposit ကိုနိပ်ပါ</p>
+                    </div>
+                </div>
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Deposite Photo/photo_3.jpg" alt="SixWin Deposit Step 3" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- ငွေသွင်းရန် Kpay Or Wave ကို Select လုပ်ထားပါ</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photos-grid-row">
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Deposite Photo/photo_4.jpg" alt="SixWin Deposit Step 4" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Select Channel မှ Channel တစ်ခုခုကိုရွေးချယ်ပါ။ <br><br>- Deposit Amount မှ ကိုယ်ထည့်သွင်းမဲ့ ငွေ Amount ကိုရိုက်ထည့်ပါ။ <br><br>- Deposit ( Amount ) ကိုနိပ်ပါ။</p>
+                    </div>
+                </div>
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Deposite Photo/photo_5.jpg" alt="SixWin Deposit Step 5" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- အကောင့်နံပတ်ကို Copy လုပ်ပါ။ <br><br>- Kpay Or Wave ထဲကိုသွားပြီး Copy ယူလာတဲ့ Phone Number ကို Past လုပ်ပြီး မိမိ ထည့်သွင်းမဲ့ ငွေ Amount အတိုင်း ငွေလွဲပါ။</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="register-step-card">
+                <div class="step-photo-container">
+                    <img src="SixWin/Six Win Deposite Photo/photo_6.jpg" alt="SixWin Deposit Step 6" class="step-photo" />
+                </div>
+                <div class="step-description">
+                    <p class="description-text">- ငွေလွဲပြေစာမှ လုပ်ငန်းစဉ်အမှတ်နောက်ဆုံး 5လုံးကို ယခုနေရာတွင်းထည့်သွင်းပြီး အတည်ပြုကိုနိပ်ပါ။<br><br>- Sec အနည်းလောက်ကြာရင် ကိုယ် Account ထဲကို Deposit Amount + Bonus ရောက်လာပါလိမ့်မယ်။</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="sixWinWithdrawal" class="screen">
+        <div class="register-page-content">
+            <h1 class="register-title">SixWin ငွေထုတ်နည်း</h1>
+            <p class="register-page-intro">KBZ Pay / Wave ဖြင့်ငွေထုတ်ယူနည်း။</p>
+
+            <div class="register-step-card">
+                <div class="step-photo-container">
+                    <img src="SixWin/Six Win Withdraw Photo/photo_1.jpg" alt="SixWin Withdrawal Step 1" class="step-photo" />
+                </div>
+                <div class="step-description">
+                    <p class="description-text">- Account ကိုနိပ်ပါ။</p>
+                </div>
+            </div>
+
+            <div class="photos-grid-row">
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Withdraw Photo/photo_2.jpg" alt="SixWin Withdrawal Step 2" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Withdraw ကိုနိပ်ပါ</p>
+                    </div>
+                </div>
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Withdraw Photo/photo_3.jpg" alt="SixWin Withdrawal Step 3" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- KBZ Pay Or Wave မိမိ‌ ငွေထုတ်မဲ့ Payment ကို Select လုပ်ပါ။</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="photos-grid-row">
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Withdraw Photo/photo_4.jpg" alt="SixWin Withdrawal Step 4" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- မိမိငွေထုတ်မဲ့ Payment ကိုမိမိငွေလက်ခံမဲ့ Payment Account ချိတ်ထားပါ<br><br>- ငွေထုတ်မဲ့ Amount ကိုရိုက်ထည့်ပြီး Withdraw ကိုနိပ်ပါ</p>
+                    </div>
+                </div>
+                <div class="register-step-card">
+                    <div class="step-photo-container">
+                        <img src="SixWin/Six Win Withdraw Photo/photo_5.jpg" alt="SixWin Withdrawal Step 5" class="step-photo" />
+                    </div>
+                    <div class="step-description">
+                        <p class="description-text">- Security Verification မှ မိမိ Account ဖွင့်ရာမှထည့်သွင်းခဲ့တဲ့ Password ကိုရိုက်ထည့်ပြီး Confirm Withdraw ကိုနိပ်။ <br><br>- Sec အနည်းလောက်ကြာရင် ကိုယ် Account ထဲကို မိမိထုတ်လိုက်တဲ့ငွေ Amount လက်ခံရရှိပါလိမ့်မယ်</p>
                     </div>
                 </div>
             </div>
@@ -4879,6 +5555,26 @@
                 </div>
             </section>
 
+            <!-- Signal Channel (SixWin) -->
+            <section class="signal-channel-section">
+                <h1 class="register-title signal-group-title">Signal Channel ( SixWin )</h1>
+                <p class="register-page-intro">Signal Telegram Channels.</p>
+                <div class="register-step-card">
+                    <a href="https://t.me/Sel_sixwinwingo30"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="register-now-btn channel-btn-with-badge channel-btn-sixwin">
+                        SixWin WinGo 30 Sec <span class="channel-free-badge">Free</span>
+                    </a>
+                    <a href="https://t.me/Sel_sixwinwingo1"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="register-now-btn channel-btn-with-badge channel-btn-sixwin">
+                        SixWin WinGo 1 Min <span class="channel-free-badge">Free</span>
+                    </a>
+                </div>
+            </section>
+
             <!-- Signal Channel 2 (777 BigWin) -->
             <section class="signal-channel-section">
                 <h1 class="register-title signal-group-title">Signal Channel 2 ( 777 BigWin )</h1>
@@ -4915,6 +5611,26 @@
                        rel="noopener noreferrer"
                        class="register-now-btn channel-btn-with-badge channel-btn-ck">
                         Ck Lottery WinGo 1 Min <span class="channel-free-badge">Free</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Signal Channel 2 (SixWin) -->
+            <section class="signal-channel-section">
+                <h1 class="register-title signal-group-title">Signal Channel 2 ( SixWin )</h1>
+                <p class="register-page-intro">Signal Telegram Channels.</p>
+                <div class="register-step-card">
+                    <a href="https://t.me/Lt_SixWin_Wingo_30"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="register-now-btn channel-btn-with-badge channel-btn-sixwin">
+                        SixWin WinGo 30 Sec <span class="channel-free-badge">Free</span>
+                    </a>
+                    <a href="https://t.me/Lt_SixWin_1_Bot"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="register-now-btn channel-btn-with-badge channel-btn-sixwin">
+                        SixWin WinGo 1 Min <span class="channel-free-badge">Free</span>
                     </a>
                 </div>
             </section>
@@ -5346,6 +6062,7 @@
         // ========== Premium Activated Time (shared with CkMini / BigWinMini / Global) ==========
         const PREMIUM_CK_EXPIRE_KEY = 'ckShared_expireTime';
         const PREMIUM_BW_EXPIRE_KEY = 'bigwinShared_expireTime';
+        const PREMIUM_SIX_EXPIRE_KEY = 'sixwinShared_expireTime';
         const premiumLoginConfigCk = {
             apiKey: "AIzaSyAy3QvFmhKiOX38MZiINfZq2yYXGhb7uL8",
             authDomain: "ck-adm.firebaseapp.com",
@@ -5388,9 +6105,11 @@
             const now = getPremiumServerTime();
             const ckExp = readPremiumExpire(PREMIUM_CK_EXPIRE_KEY);
             const bwExp = readPremiumExpire(PREMIUM_BW_EXPIRE_KEY);
+            const sixExp = readPremiumExpire(PREMIUM_SIX_EXPIRE_KEY);
             const ckRem = Math.max(0, ckExp - now);
             const bwRem = Math.max(0, bwExp - now);
-            return { ckRem, bwRem, globalRem: ckRem + bwRem, ckExp, bwExp, now };
+            const sixRem = Math.max(0, sixExp - now);
+            return { ckRem, bwRem, sixRem, globalRem: ckRem + bwRem + sixRem, ckExp, bwExp, sixExp, now };
         }
 
         function initPremiumFirebaseOffset() {
@@ -5412,6 +6131,12 @@
                 } catch (e2) {
                     firebase.initializeApp(premiumLoginConfigBw, 'allinonePremiumBw');
                 }
+                // SixWin RTDB (Using Ck config or placeholder for now)
+                try {
+                    firebase.app('allinonePremiumSix');
+                } catch (e3) {
+                    firebase.initializeApp(premiumLoginConfigCk, 'allinonePremiumSix'); // Replace with actual SixWin config if available
+                }
                 premiumFirebaseReady = true;
             } catch (err) {
                 console.error('Premium Firebase offset init failed:', err);
@@ -5421,11 +6146,13 @@
         function updatePremiumActiveTimers() {
             const elCk = document.getElementById('premiumCkTime');
             const elBw = document.getElementById('premiumBwTime');
+            const elSix = document.getElementById('premiumSixTime');
             const elGl = document.getElementById('premiumGlobalTime');
-            if (!elCk || !elBw || !elGl) return;
-            const { ckRem, bwRem, globalRem } = getPremiumRemainings();
+            if (!elCk || !elBw || !elSix || !elGl) return;
+            const { ckRem, bwRem, sixRem, globalRem } = getPremiumRemainings();
             elCk.textContent = formatPremiumHms(ckRem);
             elBw.textContent = formatPremiumHms(bwRem);
+            elSix.textContent = formatPremiumHms(sixRem);
             elGl.textContent = formatPremiumHms(globalRem);
         }
 
@@ -5488,26 +6215,33 @@
         function toggleSidebarGroup(groupId) {
             const ckSub = document.getElementById('sidebarCkSub');
             const bigwinSub = document.getElementById('sidebarBigWinSub');
+            const sixwinSub = document.getElementById('sidebarSixWinSub');
             const ckPredictionSub = document.getElementById('sidebarCkPredictionSub');
             const bigWinPredictionSub = document.getElementById('sidebarBigWinPredictionSub');
+            const sixWinPredictionSub = document.getElementById('sidebarSixWinPredictionSub');
             const globalTrxPredictionSub = document.getElementById('sidebarGlobalTrxPredictionSub');
             const historyChatsSub = document.getElementById('sidebarHistoryChatsSub');
             const historyChatsCkInner = document.getElementById('sidebarHistoryChatsCkSub');
             const historyChatsBigInner = document.getElementById('sidebarHistoryChatsBigWinSub');
+            const historyChatsSixInner = document.getElementById('sidebarHistoryChatsSixWinSub');
             const historyChatsGlobalInner = document.getElementById('sidebarHistoryChatsGlobalSub');
             
             const ckBtn = document.querySelector('[aria-controls="sidebarCkSub"]');
             const bigwinBtn = document.querySelector('[aria-controls="sidebarBigWinSub"]');
+            const sixwinBtn = document.querySelector('[aria-controls="sidebarSixWinSub"]');
             const ckPredictionBtn = document.querySelector('[aria-controls="sidebarCkPredictionSub"]');
             const bigWinPredictionBtn = document.querySelector('[aria-controls="sidebarBigWinPredictionSub"]');
+            const sixWinPredictionBtn = document.querySelector('[aria-controls="sidebarSixWinPredictionSub"]');
             const globalTrxPredictionBtn = document.querySelector('[aria-controls="sidebarGlobalTrxPredictionSub"]');
             const historyChatsBtn = document.querySelector('[aria-controls="sidebarHistoryChatsSub"]');
 
             const targetMap = {
                 ck: { sub: ckSub, btn: ckBtn },
                 bigwin: { sub: bigwinSub, btn: bigwinBtn },
+                sixwin: { sub: sixwinSub, btn: sixwinBtn },
                 ckPrediction: { sub: ckPredictionSub, btn: ckPredictionBtn },
                 bigWinPrediction: { sub: bigWinPredictionSub, btn: bigWinPredictionBtn },
+                sixwinPrediction: { sub: sixWinPredictionSub, btn: sixWinPredictionBtn },
                 globalTrxPrediction: { sub: globalTrxPredictionSub, btn: globalTrxPredictionBtn },
                 historyChats: { sub: historyChatsSub, btn: historyChatsBtn }
             };
@@ -5515,13 +6249,14 @@
             const wasOpen = !!(target && target.sub && target.sub.classList.contains('open'));
 
             // Close all groups first (single-open behavior)
-            [ckSub, bigwinSub, ckPredictionSub, bigWinPredictionSub, globalTrxPredictionSub, historyChatsSub].forEach(sub => {
+            [ckSub, bigwinSub, sixwinSub, ckPredictionSub, bigWinPredictionSub, sixWinPredictionSub, globalTrxPredictionSub, historyChatsSub].forEach(sub => {
                 if (sub) sub.classList.remove('open');
             });
             if (historyChatsCkInner) historyChatsCkInner.classList.remove('open');
             if (historyChatsBigInner) historyChatsBigInner.classList.remove('open');
+            if (historyChatsSixInner) historyChatsSixInner.classList.remove('open');
             if (historyChatsGlobalInner) historyChatsGlobalInner.classList.remove('open');
-            [ckBtn, bigwinBtn, ckPredictionBtn, bigWinPredictionBtn, globalTrxPredictionBtn, historyChatsBtn].forEach(btn => {
+            [ckBtn, bigwinBtn, sixwinBtn, ckPredictionBtn, bigWinPredictionBtn, sixWinPredictionBtn, globalTrxPredictionBtn, historyChatsBtn].forEach(btn => {
                 if (btn) btn.setAttribute('aria-expanded', 'false');
             });
 
@@ -5535,12 +6270,18 @@
             } else if (groupId === 'bigwin') {
                 const isOpen = bigwinSub.classList.toggle('open');
                 bigwinBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            } else if (groupId === 'sixwin') {
+                const isOpen = sixwinSub.classList.toggle('open');
+                sixwinBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             } else if (groupId === 'ckPrediction') {
                 const isOpen = ckPredictionSub.classList.toggle('open');
                 ckPredictionBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             } else if (groupId === 'bigWinPrediction') {
                 const isOpen = bigWinPredictionSub.classList.toggle('open');
                 bigWinPredictionBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            } else if (groupId === 'sixwinPrediction') {
+                const isOpen = sixWinPredictionSub.classList.toggle('open');
+                sixWinPredictionBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
             } else if (groupId === 'globalTrxPrediction') {
                 const isOpen = globalTrxPredictionSub.classList.toggle('open');
                 globalTrxPredictionBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
@@ -5550,28 +6291,38 @@
             }
         }
 
-        // History Chats 2nd level toggles (Ck Lottery / 777 BigWin)
+        // History Chats 2nd level toggles (Ck Lottery / 777 BigWin / SixWin)
         function toggleHistoryChatsInner(which) {
             const ckInner = document.getElementById('sidebarHistoryChatsCkSub');
             const bigwinInner = document.getElementById('sidebarHistoryChatsBigWinSub');
+            const sixwinInner = document.getElementById('sidebarHistoryChatsSixWinSub');
             const globalInner = document.getElementById('sidebarHistoryChatsGlobalSub');
-            if (!ckInner || !bigwinInner || !globalInner) return;
+            if (!ckInner || !bigwinInner || !sixwinInner || !globalInner) return;
 
             if (which === 'ck') {
                 const wasOpen = ckInner.classList.contains('open');
                 ckInner.classList.toggle('open', !wasOpen);
                 bigwinInner.classList.remove('open');
+                sixwinInner.classList.remove('open');
                 globalInner.classList.remove('open');
             } else if (which === 'bigwin') {
                 const wasOpen = bigwinInner.classList.contains('open');
                 bigwinInner.classList.toggle('open', !wasOpen);
                 ckInner.classList.remove('open');
+                sixwinInner.classList.remove('open');
+                globalInner.classList.remove('open');
+            } else if (which === 'sixwin') {
+                const wasOpen = sixwinInner.classList.contains('open');
+                sixwinInner.classList.toggle('open', !wasOpen);
+                ckInner.classList.remove('open');
+                bigwinInner.classList.remove('open');
                 globalInner.classList.remove('open');
             } else if (which === 'global') {
                 const wasOpen = globalInner.classList.contains('open');
                 globalInner.classList.toggle('open', !wasOpen);
                 ckInner.classList.remove('open');
                 bigwinInner.classList.remove('open');
+                sixwinInner.classList.remove('open');
             }
         }
 
@@ -5648,7 +6399,7 @@
                 
                 // Show header Back button
                 const headerBackBtn = document.getElementById('headerBackBtn');
-                if (pageId === 'predictionRate' || pageId.startsWith('ck30') || pageId.startsWith('ck1') || pageId.startsWith('CkWingo') || pageId.startsWith('Global_Trx') || pageId.startsWith('bigWin')) {
+                if (pageId === 'predictionRate' || pageId.startsWith('ck30') || pageId.startsWith('ck1') || pageId.startsWith('CkWingo') || pageId.startsWith('Global_Trx') || pageId.startsWith('bigWin') || pageId.startsWith('SixWin')) {
                     headerBackBtn.style.display = 'block';
                     headerBackBtn.setAttribute('data-back', 'sidebar');
                 }
@@ -5722,7 +6473,7 @@
                     }, 50);
                 }
                 // Show header Back on sidebar-opened pages
-                const sidebarPageIds = ['ckLotteryRegister', 'ckLotteryDeposit', 'ckLotteryWithdrawal', 'bigWinRegister', 'bigWinDeposit', 'bigWinWithdrawal', 'signalChannels', 'betSize'];
+                const sidebarPageIds = ['ckLotteryRegister', 'ckLotteryDeposit', 'ckLotteryWithdrawal', 'bigWinRegister', 'bigWinDeposit', 'bigWinWithdrawal', 'sixWinRegister', 'sixWinDeposit', 'sixWinWithdrawal', 'signalChannels', 'betSize'];
                 if (sidebarPageIds.indexOf(pageId) !== -1) {
                     const headerBackBtn = document.getElementById('headerBackBtn');
                     headerBackBtn.style.display = 'block';
@@ -5911,6 +6662,99 @@
             const headerBackBtn = document.getElementById('headerBackBtn');
             headerBackBtn.style.display = 'block';
             headerBackBtn.setAttribute('data-back', 'ckMenu');
+        }
+
+        // Show SixWin Menu
+        function showSixWinMenu() {
+            const activeMenu = document.querySelector('.menu.active');
+            if (activeMenu) {
+                activeMenu.classList.remove('active');
+                activeMenu.classList.add('exiting');
+                setTimeout(() => {
+                    activeMenu.classList.remove('exiting');
+                    hideAllMenus();
+                    const sixWinMenu = document.getElementById('sixWinMenu');
+                    sixWinMenu.classList.add('entering');
+                    setTimeout(() => {
+                        sixWinMenu.classList.remove('entering');
+                        sixWinMenu.classList.add('active');
+                    }, 50);
+                }, 200);
+            } else {
+                hideAllMenus();
+                const sixWinMenu = document.getElementById('sixWinMenu');
+                sixWinMenu.classList.add('entering');
+                setTimeout(() => {
+                    sixWinMenu.classList.remove('entering');
+                    sixWinMenu.classList.add('active');
+                }, 50);
+            }
+            
+            const headerBackBtn = document.getElementById('headerBackBtn');
+            headerBackBtn.style.display = 'block';
+            headerBackBtn.setAttribute('data-back', 'main');
+        }
+
+        // Show SixWin Version 1.1 Sub-Menu
+        function showSixWinVersionMenu() {
+            const activeMenu = document.querySelector('.menu.active');
+            if (activeMenu) {
+                activeMenu.classList.remove('active');
+                activeMenu.classList.add('exiting');
+                setTimeout(() => {
+                    activeMenu.classList.remove('exiting');
+                    hideAllMenus();
+                    const versionMenu = document.getElementById('sixWinVersionMenu');
+                    versionMenu.classList.add('entering');
+                    setTimeout(() => {
+                        versionMenu.classList.remove('entering');
+                        versionMenu.classList.add('active');
+                    }, 50);
+                }, 200);
+            } else {
+                hideAllMenus();
+                const versionMenu = document.getElementById('sixWinVersionMenu');
+                versionMenu.classList.add('entering');
+                setTimeout(() => {
+                    versionMenu.classList.remove('entering');
+                    versionMenu.classList.add('active');
+                }, 50);
+            }
+            
+            const headerBackBtn = document.getElementById('headerBackBtn');
+            headerBackBtn.style.display = 'block';
+            headerBackBtn.setAttribute('data-back', 'sixWinMenu');
+        }
+
+        // Show SixWin Version 1.2 Sub-Menu
+        function showSixWinVersionMenu12() {
+            const activeMenu = document.querySelector('.menu.active');
+            if (activeMenu) {
+                activeMenu.classList.remove('active');
+                activeMenu.classList.add('exiting');
+                setTimeout(() => {
+                    activeMenu.classList.remove('exiting');
+                    hideAllMenus();
+                    const versionMenu = document.getElementById('sixWinVersionMenu12');
+                    versionMenu.classList.add('entering');
+                    setTimeout(() => {
+                        versionMenu.classList.remove('entering');
+                        versionMenu.classList.add('active');
+                    }, 50);
+                }, 200);
+            } else {
+                hideAllMenus();
+                const versionMenu = document.getElementById('sixWinVersionMenu12');
+                versionMenu.classList.add('entering');
+                setTimeout(() => {
+                    versionMenu.classList.remove('entering');
+                    versionMenu.classList.add('active');
+                }, 50);
+            }
+            
+            const headerBackBtn = document.getElementById('headerBackBtn');
+            headerBackBtn.style.display = 'block';
+            headerBackBtn.setAttribute('data-back', 'sixWinMenu');
         }
 
         // Show 777 BigWin Menu
@@ -6135,6 +6979,9 @@
             } else if (pageId.startsWith('ck30') || pageId.startsWith('CkWingo')) {
                 headerBackBtn.style.display = 'block';
                 headerBackBtn.setAttribute('data-back', 'ckVersion');
+            } else if (pageId.startsWith('SixWin')) {
+                headerBackBtn.style.display = 'block';
+                headerBackBtn.setAttribute('data-back', 'sixWin');
             } else if (pageId.startsWith('bigWin')) {
                 headerBackBtn.style.display = 'block';
                 headerBackBtn.setAttribute('data-back', 'bigWin');
@@ -6150,12 +6997,16 @@
                 goBackToCkMenu();
             } else if (backType === 'bigWinMenu') {
                 goBackToBigWinMenu();
+            } else if (backType === 'sixWinMenu') {
+                goBackToSixWinMenu();
             } else if (backType === 'globalTrxMenu') {
                 goBackToGlobalTrxMenu();
             } else if (backType === 'ckVersion') {
                 goBackToCkVersion();
             } else if (backType === 'bigWin') {
                 goBackToBigWin();
+            } else if (backType === 'sixWin') {
+                goBackToSixWin();
             } else if (backType === 'globalTrxVersion') {
                 goBackToGlobalTrxVersion();
             } else if (backType === 'sidebar') {
@@ -6197,6 +7048,29 @@
             document.getElementById('headerBackBtn').style.display = 'none';
         }
 
+        // Go back to SixWin Menu
+        function goBackToSixWinMenu() {
+            const activeMenu = document.querySelector('.menu.active');
+            if (activeMenu) {
+                activeMenu.classList.remove('active');
+                activeMenu.classList.add('exiting');
+                setTimeout(() => {
+                    activeMenu.classList.remove('exiting');
+                    hideAllMenus();
+                    const sixWinMenu = document.getElementById('sixWinMenu');
+                    sixWinMenu.classList.add('entering');
+                    setTimeout(() => {
+                        sixWinMenu.classList.remove('entering');
+                        sixWinMenu.classList.add('active');
+                    }, 50);
+                }, 200);
+            } else {
+                hideAllMenus();
+                document.getElementById('sixWinMenu').classList.add('active');
+            }
+            document.getElementById('headerBackBtn').style.display = 'none';
+        }
+
         // Go back to BigWin Menu (from BigWin version menu)
         function goBackToBigWinMenu() {
             const activeMenu = document.querySelector('.menu.active');
@@ -6225,6 +7099,46 @@
             const activePage = document.querySelector('.mini-page.active');
             const activeId = activePage ? activePage.id : '';
             const versionMenuId = activeId.includes('1-2') ? 'ckVersionMenu12' : 'ckVersionMenu';
+            if (activePage) {
+                activePage.classList.remove('active');
+                activePage.classList.add('exiting');
+                setTimeout(() => {
+                    activePage.classList.remove('exiting');
+                    hideAllMiniPages();
+                    
+                    const predictionPage = document.getElementById('predictionPage');
+                    predictionPage.style.display = 'flex';
+                    predictionPage.classList.add('entering');
+                    setTimeout(() => {
+                        predictionPage.classList.remove('entering');
+                        predictionPage.classList.add('active');
+                    }, 50);
+                    
+                    hideAllMenus();
+                    const versionMenu = document.getElementById(versionMenuId);
+                    versionMenu.classList.add('entering');
+                    setTimeout(() => {
+                        versionMenu.classList.remove('entering');
+                        versionMenu.classList.add('active');
+                    }, 100);
+                }, 200);
+            } else {
+                hideAllMiniPages();
+                document.getElementById('predictionPage').style.display = 'flex';
+                hideAllMenus();
+                document.getElementById(versionMenuId).classList.add('active');
+            }
+            // Re-enable page scroll and clear last mini page
+            document.body.style.overflow = '';
+            clearLastMiniPage();
+            document.getElementById('headerBackBtn').style.display = 'none';
+        }
+
+        // Go back to SixWin Menu from Mini Page
+        function goBackToSixWin() {
+            const activePage = document.querySelector('.mini-page.active');
+            const activeId = activePage ? activePage.id : '';
+            const versionMenuId = activeId.includes('1-2') ? 'sixWinVersionMenu12' : 'sixWinVersionMenu';
             if (activePage) {
                 activePage.classList.remove('active');
                 activePage.classList.add('exiting');

@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-    <title>CK Wingo 30 - Results Data Viewer</title>
+    <title>CK Wingo 1 - Results Data Viewer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -111,6 +111,7 @@
             box-shadow: var(--neumo-raise);
         }
 
+        /* View_Results page brand (top-left) */
         #resultsContainer .results-brand-header {
             text-align: left;
             align-self: flex-start;
@@ -136,6 +137,7 @@
             text-align: left;
         }
 
+        /* View_Results page h1 (fallback / other pages) */
         #resultsContainer h1,
         .results-container h1 {
             color: var(--neumo-text);
@@ -156,7 +158,10 @@
             text-shadow: none;
         }
         
-        .title-subtitle span { display: inline-block; letter-spacing: inherit; }
+        .title-subtitle span {
+            display: inline-block;
+            letter-spacing: inherit;
+        }
 
         .subtitle {
             text-align: center;
@@ -168,7 +173,14 @@
             text-transform: uppercase;
         }
 
-        .controls { display: flex; justify-content: center; align-items: center; margin-bottom: 32px; flex-wrap: wrap; gap: 18px; }
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
 
         button {
             background: linear-gradient(145deg, #ff7b7b 0%, #ff6b6b 50%, #e94444 100%);
@@ -181,11 +193,22 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            box-shadow: 6px 6px 14px rgba(233, 68, 68, 0.3), -4px -4px 12px rgba(255, 255, 255, 0.35);
+            box-shadow:
+                6px 6px 14px rgba(233, 68, 68, 0.3),
+                -4px -4px 12px rgba(255, 255, 255, 0.35);
         }
 
-        button:hover:not(:disabled) { box-shadow: 4px 4px 12px rgba(233, 68, 68, 0.28), -3px -3px 10px rgba(255, 255, 255, 0.4); }
-        button:disabled { opacity: 0.45; cursor: not-allowed; box-shadow: none; }
+        button:hover:not(:disabled) {
+            box-shadow:
+                4px 4px 12px rgba(233, 68, 68, 0.28),
+                -3px -3px 10px rgba(255, 255, 255, 0.4);
+        }
+
+        button:disabled {
+            opacity: 0.45;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
 
         .status {
             padding: 16px 20px;
@@ -200,12 +223,49 @@
             color: var(--main-color);
         }
 
-        .status.loading, .status.success, .status.error { background: var(--white-bg); color: var(--main-color); border-color: var(--main-color); }
+        .status.loading {
+            background: var(--white-bg);
+            color: var(--main-color);
+            border-color: var(--main-color);
+        }
 
-        .status::before { content: ''; width: 14px; height: 14px; border-radius: 50%; display: inline-block; background: var(--main-color); }
-        .status.loading::before, .status.success::before, .status.error::before { background: var(--main-color); }
+        .status.success {
+            background: var(--white-bg);
+            color: var(--main-color);
+            border-color: var(--main-color);
+        }
 
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
+        .status.error {
+            background: var(--white-bg);
+            color: var(--main-color);
+            border-color: var(--main-color);
+        }
+
+        .status::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            display: inline-block;
+            background: var(--main-color);
+        }
+
+        .status.loading::before {
+            background: var(--main-color);
+        }
+
+        .status.success::before {
+            background: var(--main-color);
+        }
+
+        .status.error::before {
+            background: var(--main-color);
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
 
         table {
             width: 100%;
@@ -219,7 +279,10 @@
             box-shadow: var(--neumo-inset-sm);
         }
 
-        thead { background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 100%); color: var(--neumo-text); }
+        thead {
+            background: linear-gradient(145deg, #eef2ff 0%, #e0e7ff 100%);
+            color: var(--neumo-text);
+        }
 
         th {
             padding: 20px 22px;
@@ -232,8 +295,13 @@
             border-bottom: 1px solid var(--main-color-alpha-20);
         }
 
-        th:first-child { border-top-left-radius: 24px; }
-        th:last-child { border-top-right-radius: 24px; }
+        th:first-child {
+            border-top-left-radius: 24px;
+        }
+
+        th:last-child {
+            border-top-right-radius: 24px;
+        }
 
         td {
             padding: 18px 22px;
@@ -243,10 +311,22 @@
             background: var(--white-bg);
         }
 
-        td.period-number, td.number-column { color: var(--text); font-weight: 800; }
+        td.period-number,
+        td.number-column {
+            color: var(--text);
+            font-weight: 800;
+        }
 
-        @media (hover: hover) and (pointer: fine) { tbody tr:hover { background: var(--main-color-alpha-10); } }
-        tbody tr:last-child td { border-bottom: none; }
+
+        @media (hover: hover) and (pointer: fine) {
+            tbody tr:hover {
+                background: var(--main-color-alpha-10);
+            }
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
 
         .big { color: #ca8a04; font-weight: 800; font-size: 16px; }
         .small { color: var(--main-color-dark); font-weight: 800; font-size: 16px; }
@@ -304,7 +384,9 @@
             min-width: 0;
         }
 
-        @media (max-width: 540px) { .predictions-pair-row { grid-template-columns: 1fr; gap: 12px; } }
+        @media (max-width: 540px) {
+            .predictions-pair-row { grid-template-columns: 1fr; gap: 12px; }
+        }
 
         .count-display {
             background: var(--neumo-base);
@@ -381,7 +463,13 @@
             position: relative;
         }
 
-        .realtime-indicator::before { content: ''; width: 8px; height: 8px; background: var(--main-color); border-radius: 50%; }
+        .realtime-indicator::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--main-color);
+            border-radius: 50%;
+        }
 
         .last-update {
             text-align: center;
@@ -430,6 +518,7 @@
             .quantum-button { letter-spacing: 0.25em; }
         }
         
+        /* ========== KEY ENTRY SECTION ========== */
         #gate {
             display: none;
             position: fixed;
@@ -510,7 +599,12 @@
         }
         
         .quantum-input::placeholder { color: var(--neumo-muted); letter-spacing: 0.2em; }
-        .quantum-input:focus { outline: none; border-color: var(--main-color-dark); background: #fff; box-shadow: 0 0 0 3px var(--main-color-alpha-20); }
+        .quantum-input:focus {
+            outline: none;
+            border-color: var(--main-color-dark);
+            background: #fff;
+            box-shadow: 0 0 0 3px var(--main-color-alpha-20);
+        }
         
         .quantum-button {
             width: 100%;
@@ -524,14 +618,21 @@
             cursor: pointer;
             letter-spacing: 0.35em;
             text-transform: uppercase;
-            box-shadow: 6px 6px 14px rgba(233, 68, 68, 0.35), -4px -4px 12px rgba(255, 255, 255, 0.35);
+            box-shadow:
+                6px 6px 14px rgba(233, 68, 68, 0.35),
+                -4px -4px 12px rgba(255, 255, 255, 0.35);
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
         
-        .quantum-button:hover { box-shadow: 4px 4px 12px rgba(233, 68, 68, 0.32), -3px -3px 10px rgba(255, 255, 255, 0.4); }
+        .quantum-button:hover {
+            box-shadow:
+                4px 4px 12px rgba(233, 68, 68, 0.32),
+                -3px -3px 10px rgba(255, 255, 255, 0.4);
+        }
+        
         .quantum-button i { font-size: 1.1rem; }
         
         .loader {
@@ -573,7 +674,10 @@
             background: #ff9b9b;
         }
         
-        @keyframes load9243 { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        @keyframes load9243 {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         
         .quantum-timer {
             margin: 8px 0 4px;
@@ -591,7 +695,12 @@
             gap: 10px;
         }
         
-        .quantum-timer-text { color: #ffe6e6; font-weight: 800; font-size: 0.9rem; font-family: 'Orbitron', sans-serif; }
+        .quantum-timer-text {
+            color: #ffe6e6;
+            font-weight: 800;
+            font-size: 0.9rem;
+            font-family: 'Orbitron', sans-serif;
+        }
         
         .telegram-button-wrapper { margin-top: 20px; }
         
@@ -629,18 +738,32 @@
             left: 0.6em;
         }
         
-        .icon svg { margin-left: 0.1em; color: var(--main-color-dark); width: 1.2rem; height: 1.2rem; }
+        .icon svg {
+            margin-left: 0.1em;
+            color: var(--main-color-dark);
+            width: 1.2rem;
+            height: 1.2rem;
+        }
         
-        .button:hover { background: rgba(255, 255, 255, 0.08); box-shadow: 0 12px 30px rgba(8, 17, 34, 0.7); }
+        .button:hover {
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 30px rgba(8, 17, 34, 0.7);
+        }
         
         .quantum-success { display: none; }
         .success-icon { display: none; }
         
         .results-container { display: none; }
         
-        .results-container.unlocked { display: flex; flex-direction: column; align-items: stretch; }
+        .results-container.unlocked {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
         
-        @media (max-width: 768px) { input, select, textarea { font-size: 16px; } }
+        @media (max-width: 768px) {
+            input, select, textarea { font-size: 16px; }
+        }
 
         @media (max-width: 768px) {
             .container { max-width: 100%; padding: 16px 12px; border-radius: 16px; margin: 0 auto; }
@@ -720,6 +843,7 @@
         }
         
         * { -webkit-tap-highlight-color: transparent; }
+        
         html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
 
         @media (prefers-reduced-motion: reduce) {
@@ -739,7 +863,9 @@
             font-weight: 700;
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            box-shadow: 6px 6px 14px rgba(233, 68, 68, 0.3), -4px -4px 12px rgba(255, 255, 255, 0.35);
+            box-shadow:
+                6px 6px 14px rgba(233, 68, 68, 0.3),
+                -4px -4px 12px rgba(255, 255, 255, 0.35);
         }
         
         button:hover { box-shadow: 4px 4px 12px rgba(233, 68, 68, 0.28), -3px -3px 10px rgba(255, 255, 255, 0.4); }
@@ -796,7 +922,9 @@
         tbody tr:last-child { border-bottom: none; }
         tbody tr:nth-child(even) { background: rgba(255, 107, 107, 0.04); }
         
-        @media (hover: hover) and (pointer: fine) { tbody tr:hover { background: var(--main-color-alpha-10); } }
+        @media (hover: hover) and (pointer: fine) {
+            tbody tr:hover { background: var(--main-color-alpha-10); }
+        }
         
         td {
             padding: 6px 4px;
@@ -1041,7 +1169,9 @@
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 6px 6px 14px rgba(233, 68, 68, 0.35), -4px -4px 12px rgba(255, 255, 255, 0.35);
+            box-shadow:
+                6px 6px 14px rgba(233, 68, 68, 0.35),
+                -4px -4px 12px rgba(255, 255, 255, 0.35);
             min-width: 80px;
         }
         
@@ -1171,7 +1301,7 @@
         <div class="quantum-gate">
             <div class="gate-brand-header">
                 <h1 class="quantum-title"><span class="brand-red">SuperSel</span> <span class="brand-black">Earing</span><span class="special-badge">SPECIAL</span></h1>
-                <p class="gate-brand-sub">CkWinGo30MiniV1.1</p>
+                <p class="gate-brand-sub">SixWinGo1MiniV1.1</p>
             </div>
             <input type="text" id="keyInput" class="quantum-input" placeholder="ENTER QUANTUM ACCESS KEY">
             <button class="quantum-button" id="activateBtn">
@@ -1198,7 +1328,7 @@
     <div class="container results-container" id="resultsContainer">
         <div class="results-brand-header">
             <h1 class="results-brand-title"><span class="brand-red">SuperSel</span> <span class="brand-black">Earing</span><span class="special-badge">SPECIAL</span></h1>
-            <p class="results-brand-sub">SixWinGo30MiniV1.1</p>
+            <p class="results-brand-sub">SixWinGo1MiniV1.1</p>
         </div>
         <p class="subtitle">
             <span class="realtime-indicator">● LIVE</span>
@@ -1221,7 +1351,7 @@
         
         <div class="predictions-pair-row">
             <div id="predictionBox" class="prediction-box">
-                <div class="prediction-title">Six Wingo 30 · Premium AI</div>
+                <div class="prediction-title">Six Wingo 1 · Premium AI</div>
                 <div class="prediction-row">
                     <span class="prediction-label">Period</span>
                     <span id="predPeriod" class="prediction-value">-</span>
@@ -1248,7 +1378,7 @@
     
         <div id="ckLotteryContainer" class="ck-lottery-container" style="display: none;">
         <div id="ckLotteryPredictionBox" class="prediction-box">
-            <div class="prediction-title">Six Wingo 30 · Premium AI</div>
+            <div class="prediction-title">Six Wingo 1 · Premium AI</div>
             <div class="prediction-row">
                 <span class="prediction-label">Period</span>
                 <span id="ckLotteryPredPeriod" class="prediction-value">-</span>
@@ -1300,8 +1430,8 @@
                         document.getElementById("resultsContainer").classList.remove("unlocked");
                         if (!expireTime || !activatedKeyId) {
                             // ✅ 6 Mini uses ONLY its own isolated localStorage keys
-                            localStorage.removeItem(SIX_30_SHARED_EXPIRE_KEY);
-                            localStorage.removeItem(SIX_30_SHARED_ACTIVATED_KEY);
+                            localStorage.removeItem(SIX_SHARED_EXPIRE_KEY);
+                            localStorage.removeItem(SIX_SHARED_ACTIVATED_KEY);
                         }
                     }
                     
@@ -1317,6 +1447,7 @@
             }
         }
         
+        // ========== QUANTUM AI KEY UNLOCK FUNCTIONALITY ==========
         const loginConfig = {
             apiKey: "AIzaSyAy3QvFmhKiOX38MZiINfZq2yYXGhb7uL8",
             authDomain: "ck-adm.firebaseapp.com",
@@ -1331,12 +1462,12 @@
         let loginDb = null;
         let serverOffset = 0;
         // ✅ ISOLATED localStorage keys (NOT shared with CK Mini)
-        const SIX_30_SHARED_EXPIRE_KEY = 'six30Shared_expireTime';
-        const SIX_30_SHARED_ACTIVATED_KEY = 'six30Shared_activatedKeyId';
-        let expireTime = parseInt(localStorage.getItem(SIX_30_SHARED_EXPIRE_KEY) || '0', 10) || 0;
-        let activatedKeyId = localStorage.getItem(SIX_30_SHARED_ACTIVATED_KEY) || null;
-        if (expireTime > 0) localStorage.setItem(SIX_30_SHARED_EXPIRE_KEY, String(expireTime));
-        if (activatedKeyId) localStorage.setItem(SIX_30_SHARED_ACTIVATED_KEY, activatedKeyId);
+               const SIX_SHARED_EXPIRE_KEY = 'sixShared_expireTime';
+        const SIX_SHARED_ACTIVATED_KEY = 'sixShared_activatedKeyId';
+        let expireTime = parseInt(localStorage.getItem(SIX_SHARED_EXPIRE_KEY) || '0', 10) || 0;
+        let activatedKeyId = localStorage.getItem(SIX_SHARED_ACTIVATED_KEY) || null;
+        if (expireTime > 0) localStorage.setItem(SIX_SHARED_EXPIRE_KEY, String(expireTime));
+        if (activatedKeyId) localStorage.setItem(SIX_SHARED_ACTIVATED_KEY, activatedKeyId);
         let timerInterval = null;
         let keyStatusListener = null;
         
@@ -1384,8 +1515,8 @@
                 if (snapshot.exists()) {
                     const data = snapshot.val();
                     
-                    if (!data.keyType || data.keyType !== "6wingo") {
-                        const keyTypeName = data.keyType === "ck" ? "CK" : data.keyType === "bigwin" ? "BigWin" : "Unknown";
+                    if (!data.keyType || data.keyType !== "sixwin") {
+                        const keyTypeName = data.keyType === "ck" ? "CK" : data.keyType === "bigwin" ? "BigWin" : data.keyType === "sixwin" ? "6Win" : "Unknown";
                         alert(`❌ Invalid Key Type! This is a ${keyTypeName} key. Only keys generated by 6KeyAdmin can be used with 6 results pages.`);
                         return;
                     }
@@ -1398,7 +1529,7 @@
                     const extraTime = data.duration * 60 * 1000;
                     const currentServerTime = getServerTime();
                     expireTime = Math.max(currentServerTime, expireTime) + extraTime;
-                    localStorage.setItem(SIX_30_SHARED_EXPIRE_KEY, String(expireTime));
+                    localStorage.setItem(SIX_SHARED_EXPIRE_KEY, String(expireTime));
                     
                     loginDb.ref('keys/' + key).update({ 
                         used: true,
@@ -1407,7 +1538,7 @@
                     });
                     
                     activatedKeyId = key;
-                    localStorage.setItem(SIX_30_SHARED_ACTIVATED_KEY, key);
+                    localStorage.setItem(SIX_SHARED_ACTIVATED_KEY, key);
                     
                     document.getElementById('key-content').style.display = 'block';
                     alert(`Quantum Access Activated! Added ${data.duration} minutes`);
@@ -1448,8 +1579,8 @@
                 gate.style.display = "block";
                 resultsContainer.classList.remove("unlocked");
                 // ✅ Clear ONLY 6 Mini's isolated keys
-                localStorage.removeItem(SIX_30_SHARED_EXPIRE_KEY);
-                localStorage.removeItem(SIX_30_SHARED_ACTIVATED_KEY);
+                localStorage.removeItem(SIX_SHARED_EXPIRE_KEY);
+                localStorage.removeItem(SIX_SHARED_ACTIVATED_KEY);
                 activatedKeyId = null;
                 if (firebaseListener && db) {
                     db.ref(FIREBASE_PATH).off('value', firebaseListener);
@@ -1541,8 +1672,8 @@
             }
             
             // ✅ Clear ONLY 6 Mini's isolated keys
-            localStorage.removeItem(SIX_30_SHARED_EXPIRE_KEY);
-            localStorage.removeItem(SIX_30_SHARED_ACTIVATED_KEY);
+            localStorage.removeItem(SIX_SHARED_EXPIRE_KEY);
+            localStorage.removeItem(SIX_SHARED_ACTIVATED_KEY);
             expireTime = 0;
             activatedKeyId = null;
             
@@ -1569,25 +1700,9 @@
             measurementId: "G-6Z7DYPKHR2"
         };
 
-        const PREDICTION_FIREBASE_CONFIG = {
-            apiKey: "AIzaSyBMRKbOavHAQTbufOjcAbnSxZH89-SeGek",
-            authDomain: "chackchack-d7445.firebaseapp.com",
-            databaseURL: "https://chackchack-d7445-default-rtdb.europe-west1.firebasedatabase.app",
-            projectId: "chackchack-d7445",
-            storageBucket: "chackchack-d7445.firebasestorage.app",
-            messagingSenderId: "533782546151",
-            appId: "1:533782546151:web:13050e49252ca127388442"
-        };
-
-        const CHANNEL_KEY = 'CK30MINI1_HTML';
-        const PREDICTION_STRATEGY = 'premium_reverse';
-
-        const FIREBASE_PATH = "6wingo30/default";
+        const FIREBASE_PATH = "6wingo1/default";
 
         let db = null;
-        let predictionDb = null;
-        let predictionFirebaseApp = null;
-        let lastPredictionSignature = null;
         let currentResults = [];
         let firebaseListener = null;
         let predSystemTimeout = null;
@@ -1610,9 +1725,9 @@
             const np = nextPrediction || '-';
             const npClass = np === 'BIG' ? 'psys-pred-big' : (np === 'SMALL' ? 'psys-pred-small' : '');
             let sysHtml = '<div class="ck12-pred-system-content">';
-            sysHtml += '<div class="ck12-pred-system-row"><span class="ck12-pred-system-label">Pattern (Last 5 B/S)</span><span class="ck12-pred-system-value">' + (analysisPattern || '-') + '</span></div>';
-            sysHtml += '<div class="ck12-pred-system-row"><span class="ck12-pred-system-label">Counter-trend Pick</span><span class="ck12-pred-system-value ' + npClass + '">' + np + '</span></div>';
-            sysHtml += '<div class="ck12-pred-system-row"><span class="ck12-pred-system-label">AI Hit Rate</span><span class="ck12-pred-system-value">' + (rate != null ? rate : '-') + '</span></div>';
+            sysHtml += '<div class="ck12-pred-system-row"><span class="ck12-pred-system-label">Analysis (Last 5 B/S)</span><span class="ck12-pred-system-value">' + (analysisPattern || '-') + '</span></div>';
+            sysHtml += '<div class="ck12-pred-system-row"><span class="ck12-pred-system-label">Next Prediction</span><span class="ck12-pred-system-value ' + npClass + '">' + np + '</span></div>';
+            sysHtml += '<div class="ck12-pred-system-row"><span class="ck12-pred-system-label">Accuracy Rate</span><span class="ck12-pred-system-value">' + (rate != null ? rate : '-') + '</span></div>';
             sysHtml += '</div>';
             sysEl.innerHTML = sysHtml;
         }
@@ -1656,85 +1771,6 @@
             }
         }
 
-        function initializePredictionFirebase() {
-            try {
-                if (typeof firebase === 'undefined') {
-                    console.error('❌ Firebase SDK not loaded for predictions');
-                    return false;
-                }
-
-                if (predictionDb) {
-                    return true;
-                }
-
-                if (!predictionFirebaseApp) {
-                    if (firebase.apps && firebase.apps.length) {
-                        for (let i = 0; i < firebase.apps.length; i++) {
-                            if (firebase.apps[i].name === 'ck30Prediction') {
-                                predictionFirebaseApp = firebase.apps[i];
-                                break;
-                            }
-                        }
-                    }
-                    if (!predictionFirebaseApp) {
-                        predictionFirebaseApp = firebase.initializeApp(PREDICTION_FIREBASE_CONFIG, 'ck30Prediction');
-                    }
-                }
-
-                predictionDb = predictionFirebaseApp.database();
-                return true;
-            } catch (error) {
-                console.error('❌ Prediction Firebase init failed:', error);
-                return false;
-            }
-        }
-
-        function savePredictionToFirebase(period, prediction, rate) {
-            if (!period || !prediction) return;
-
-            if (!predictionDb) {
-                if (!initializePredictionFirebase()) {
-                    console.warn('⚠️ Prediction Firebase not ready, cannot push.');
-                    return;
-                }
-            }
-
-            const normalizedPeriod = period.toString().trim();
-            const normalizedPrediction = prediction.toString().toUpperCase();
-            const normalizedRate = rate ? rate.toString() : '-';
-
-            if (!normalizedPeriod || !normalizedPrediction || normalizedPrediction === '-') {
-                return;
-            }
-
-            const signature = `${normalizedPeriod}_${normalizedPrediction}_${normalizedRate}`;
-            if (signature === lastPredictionSignature) {
-                return;
-            }
-
-            const payload = {
-                id: `${CHANNEL_KEY}_${Date.now()}`,
-                channelKey: CHANNEL_KEY,
-                channelName: 'CK 30 Mini View',
-                period: normalizedPeriod,
-                predictionType: normalizedPrediction,
-                predictionValue: normalizedPrediction,
-                rate: normalizedRate,
-                timestamp: Date.now(),
-                source: 'CK30Mini1-1',
-                strategy: PREDICTION_STRATEGY
-            };
-
-            predictionDb.ref('predictions').child(CHANNEL_KEY).set(payload)
-                .then(() => {
-                    lastPredictionSignature = signature;
-                    console.log('✅ Prediction pushed to Realtime Firebase:', payload);
-                })
-                .catch((error) => {
-                    console.error('❌ Failed to push prediction to Realtime Firebase:', error);
-                });
-        }
-
         function showStatus(message, type) {
             const statusEl = document.getElementById('status');
             statusEl.textContent = message;
@@ -1765,21 +1801,22 @@
 
         function calculatePrediction(historyData) {
             if (!historyData || historyData.length < 2) return null;
-
+            
             const availableResults = historyData.slice(0, Math.min(5, historyData.length));
             let bigCount = 0;
             let smallCount = 0;
-
+            
             availableResults.forEach(item => {
                 const bs = classifyBigSmall(item.number);
                 if (bs === 'BIG') bigCount++;
                 else if (bs === 'SMALL') smallCount++;
             });
-
+            
             if (bigCount >= smallCount) {
                 return 'SMALL';
+            } else {
+                return 'BIG';
             }
-            return 'BIG';
         }
         
         function calculateRate(historyData) {
@@ -1887,11 +1924,10 @@
                     console.error("Period parse error", e);
                     nextPeriod = "Error";
                 }
-                
+
                 const rate = calculateRate(results);
                 setPredictionDisplays(nextPeriod, nextPrediction, rate);
                 togglePredictionBoxes(true);
-                savePredictionToFirebase(nextPeriod, nextPrediction, rate);
             } else {
                 setPredictionDisplays('-', '-', '-');
                 togglePredictionBoxes(false);
@@ -2062,7 +2098,7 @@
                         processFirebaseData(data);
                         updateLastUpdateTime(data.publishedAt || Date.now());
                     } else {
-                        renderTable([]);
+                        renderTable([], []);
                     }
                 }, (error) => {
                     console.error('Firebase read error:', error);
